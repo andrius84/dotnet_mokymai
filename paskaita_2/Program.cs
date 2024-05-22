@@ -18,7 +18,7 @@
 
             Console.WriteLine("Iveskite slaptazodi:");
             int b = int.Parse(Console.ReadLine());
-            var mypass = mellon;
+            var mypass = "mellon";
 
              
 
