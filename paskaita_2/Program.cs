@@ -16,15 +16,28 @@
                 Console.WriteLine("skaicius mazesnis uz 100");
             }
 
-            Console.WriteLine("Iveskite slaptazodi:");
-            int b = int.Parse(Console.ReadLine());
-            var mypass = "mellon";
-
-             
-
-
-
-
-        }
+            int mypass = 11110000;
+            Console.Write("Iveskite slaptazodi:");
+            string slaptazodis = Console.ReadLine();
+            int b = int.Parse(slaptazodis);
+            bool raides = slaptazodis.Any(char.IsLetter);      
+            if (raides)
+            {
+                Console.WriteLine("Slaptazodis neteisingas.");
+            }
+            else
+            {
+                if (b == mypass)
+                {
+                    Console.WriteLine("Slaptazodis neteisingas");
+                }
+                else 
+                { 
+                    Console.WriteLine("Slaptazodis neteisingas"); 
+                }
+                
+            }
+                     
+        }     
     }
 }
