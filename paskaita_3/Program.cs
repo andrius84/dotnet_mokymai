@@ -17,10 +17,13 @@
                     Console.WriteLine(skarr);
                     break;
                 case 2:
-                    Console.WriteLine("Iveskite teksta:");
+                    Console.WriteLine("Iveskite teksta, bus pakeisti skaiciai i simbolius:");
                     string text = Console.ReadLine();
                     string res = text.Replace('2', 'g').Replace('4', 'b').Replace('6', '*').Replace('8', 'x').Replace("10", 'w'.ToString());
+                    Console.WriteLine("Pakeistas tekstas:");
+                    Console.BackgroundColor = ConsoleColor.Red;
                     Console.WriteLine(res);
+                    Console.BackgroundColor = ConsoleColor.Black;
                     break;
                 case 3:
                     Console.WriteLine("Iveskite 5 simboliu teksta:");
@@ -43,8 +46,10 @@
                             textarr[3] = (char)(textarr[3] + kodassk);
                             textarr[4] = (char)(textarr[4] + kodassk);
 
-                            console.WriteLine("Uzkoduotas tekstas:");
+                            Console.WriteLine("Uzkoduotas tekstas:");
+                            Console.BackgroundColor = ConsoleColor.Red;
                             Console.WriteLine(textarr);
+                            Console.BackgroundColor = ConsoleColor.Black;
                         }
                     }
                     else
