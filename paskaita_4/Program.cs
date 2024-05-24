@@ -49,35 +49,73 @@
         //    Console.WriteLine(zlabas);
         //}
 
-        // 4. Uzduotis
-        //int tt = 0, ii = 0, kk = 0, rr = 0, oo = 0, jj = 0, mm = 0, ee = 0, ll = 0;
-        //Console.WriteLine("Iveskite pirma varda:");
-        //string vardas1 = Console.ReadLine();
-        //Console.WriteLine("Iveskite antra varda:");
-        //string vardas2 = Console.ReadLine();
+        //4.Uzduotis
+        int tt = 0, ii = 0, kk = 0, rr = 0, oo = 0, jj = 0, mm = 0, ee = 0, ll = 0;
+        int tt2 = 0, ii2 = 0, kk2 = 0, rr2 = 0, oo2 = 0, jj2 = 0, mm2 = 0, ee2 = 0, ll2 = 0;
+        Console.WriteLine("Iveskite pirma varda:");
+        string vardas1 = Console.ReadLine();
+        Console.WriteLine("Iveskite antra varda:");
+        string vardas2 = Console.ReadLine();
 
-        //char[] vardas1arr = vardas1.ToCharArray();
+        char[] vardas1arr = vardas1.ToCharArray();
+        char[] vardas2arr = vardas2.ToCharArray();
 
-        //if ('t' == vardas1arr[0]) { tt++; };
-        //if ('i' == vardas1arr[0]) { ii++; };
-        //if ('k' == vardas1arr[0]) { kk++; };
-        //if ('r' == vardas1arr[0]) { rr++; };
-        //if ('o' == vardas1arr[0]) { oo++; };
-        //if ('j' == vardas1arr[0]) { jj++; };
-        //if ('m' == vardas1arr[0]) { mm++; };
-        //if ('e' == vardas1arr[0]) { ee++; };
-        //if ('l' == vardas1arr[0]) { ll++; };
+        for (int i = 0; i < vardas1arr.Length; i++)
+        {
+            if ('t' == vardas1arr[i]) { tt++; };
+            if ('i' == vardas1arr[i]) { ii++; };
+            if ('k' == vardas1arr[i]) { kk++; };
+            if ('r' == vardas1arr[i]) { rr++; };
+            if ('o' == vardas1arr[i]) { oo++; };
+            if ('j' == vardas1arr[i]) { jj++; };
+            if ('m' == vardas1arr[i]) { mm++; };
+            if ('e' == vardas1arr[i]) { ee++; };
+            if ('l' == vardas1arr[i]) { ll++; };
+        }
 
-        //Console.WriteLine(vardas1);
-        //Console.WriteLine($"t({tt} i({ii}) k({kk}) r({rr}) o({oo}) j({jj}) m({mm}) e({ee}) l({ll})");
+        for (int i = 0; i < vardas2arr.Length; i++)
+        {
+            if ('t' == vardas1arr[i]) { tt2++; };
+            if ('i' == vardas1arr[i]) { ii2++; };
+            if ('k' == vardas1arr[i]) { kk2++; };
+            if ('r' == vardas1arr[i]) { rr2++; };
+            if ('o' == vardas1arr[i]) { oo2++; };
+            if ('j' == vardas1arr[i]) { jj2++; };
+            if ('m' == vardas1arr[i]) { mm2++; };
+            if ('e' == vardas1arr[i]) { ee2++; };
+            if ('l' == vardas1arr[i]) { ll2++; };
+        }
+
+        Console.WriteLine(vardas1);
+        if (tt > 0) { Console.WriteLine("t: " + tt); }
+        if (ii > 0) { Console.WriteLine("i: " + ii); }
+        if (kk > 0) { Console.WriteLine("k: " + kk); }
+        if (rr > 0) { Console.WriteLine("r: " + rr); }
+        if (oo > 0) { Console.WriteLine("o: " + oo); }
+        if (jj > 0) { Console.WriteLine("j: " + jj); }
+        if (mm > 0) { Console.WriteLine("m: " + mm); }
+        if (ee > 0) { Console.WriteLine("e: " + ee); }
+        if (ll > 0) { Console.WriteLine("l: " + ll); }
+
+        Console.WriteLine(vardas2);
+        if (tt2 > 0) { Console.WriteLine("t: " + tt2); }
+        if (ii2 > 0) { Console.WriteLine("i: " + ii2); }
+        if (kk2 > 0) { Console.WriteLine("k: " + kk2); }
+        if (rr2 > 0) { Console.WriteLine("r: " + rr2); }
+        if (oo2 > 0) { Console.WriteLine("o: " + oo2); }
+        if (jj2 > 0) { Console.WriteLine("j: " + jj2); }
+        if (mm2 > 0) { Console.WriteLine("m: " + mm2); }
+        if (ee2 > 0) { Console.WriteLine("e: " + ee2); }
+        if (ll2 > 0) { Console.WriteLine("l: " + ll2); }
+
 
         // 5. Uzduotis
 
-        int i = 1;
-        while ( i <= 5 )
-        {
-            Console.WriteLine( i++ );
-        }
+        //int i = 1;
+        //while ( i <= 5 )
+        //{
+        //    Console.WriteLine( i++ );
+        //}
 
         //
 
