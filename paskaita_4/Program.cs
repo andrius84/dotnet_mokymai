@@ -210,26 +210,34 @@ internal class Program
         //}
 
         // 11. Uzduotis
-        
-        bool arInt = true;
+
         int skaiciusint;
+        bool arskaicius;
         do
         {
-            Console.WriteLine("Iveskite simbolius:");
+            Console.WriteLine("Iveskite skaicius:");
             string skaicius = Console.ReadLine();
-            bool arInt = int.TryParse(skaicius, out skaiciusint);
-            Console.WriteLine(skaiciusint);
-        } while (arInt == true);
+            arskaicius = int.TryParse(skaicius, out skaiciusint);
+            if (!arskaicius)
+            {
+                Console.WriteLine("Ivestas blogas skaicius, iveskite vel");
+            }
+        } while (!arskaicius);
+        Console.WriteLine(skaiciusint);
 
+        Console.WriteLine("Enter a number:");
+        string input = Console.ReadLine();
+        int number;
+        bool isInt = int.TryParse(input, out number);
 
-
-
-
-
-
-
-
-
+        if (isInt)
+        {
+            Console.WriteLine("The entered number is an integer.");
+        }
+        else
+        {
+            Console.WriteLine("The entered value is not an integer.");
+        }
 
     }
 }
