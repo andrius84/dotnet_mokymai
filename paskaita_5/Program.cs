@@ -8,31 +8,31 @@ namespace paskaita_5
         {
 
             //1.Uzduotis
-            string skaicius = "";
-            double suma = 0;
-            do
-            {
-                Console.WriteLine("Iveskite skaicius:");
-                skaicius = Console.ReadLine();
-                skaicius = skaicius.ToLower();
-                double.TryParse(skaicius, out double skaiciusint);
-                suma = suma + skaiciusint;
-                Console.WriteLine(suma);
-            } while (!(skaicius == "baigti"));
-            Console.WriteLine($"galutine suma:" + suma);
+            //string skaicius = "";
+            //double suma = 0;
+            //do
+            //{
+            //    Console.WriteLine("Iveskite skaicius:");
+            //    skaicius = Console.ReadLine();
+            //    skaicius = skaicius.ToLower();
+            //    double.TryParse(skaicius, out double skaiciusint);
+            //    suma = suma + skaiciusint;
+            //    Console.WriteLine(suma);
+            //} while (!(skaicius == "baigti"));
+            //Console.WriteLine("galutine suma:" + suma);
 
             // 2.Uzduotis
             //string slaptazodis = "";
             //do
             //{
-            //    Console.WriteLine("Iveskite slaptazodi:"); 
+            //    Console.WriteLine("Iveskite slaptazodi:");
             //    slaptazodis = Console.ReadLine();
             //    if (!(slaptazodis == "test123"))
             //    {
             //        Console.WriteLine("SLAPTAZODIS NETEISINGAS");
             //    }
-            //} while (!(slaptazodis == "test123")) ;
-            //    Console.WriteLine("********slaptazodis teisingas********");
+            //} while (!(slaptazodis == "test123"));
+            //Console.WriteLine("********slaptazodis teisingas********");
 
             // 3.Uzduotis
 
@@ -49,7 +49,7 @@ namespace paskaita_5
             //Console.WriteLine("Iveskite suma doleriais:");
             //string dollars = Console.ReadLine();
             //double.TryParse(dollars, out double dollarsdouble);
-            //Console.WriteLine($"Turite " + ConvertToEuros(dollarsdouble) + " eurus");
+            //Console.WriteLine("Turite " + ConvertToEuros(dollarsdouble) + " eurus");
 
             // 4.Uzduotis
 
@@ -109,8 +109,7 @@ namespace paskaita_5
 
         public static double ConvertToEuros(double dollars)
         {   
-            double euro = dollars * 0.85;
-            return euro;
+            return dollars * 0.85;
         }
 
         public static string GetInitials (string fistName,string lastName)
@@ -126,19 +125,23 @@ namespace paskaita_5
 
         public static bool IsNumberEven(int number)
         {
-            if (number % 2 == 0)
-            {
-                return true;
-            }
-            else return false;
+            return number % 2 == 0
         }
 
         public static double CalculateRectangleArea(double lenght, double width)
         {
-            double plotas = lenght * width;
-            return plotas;
+            return lenght * width;
         }
 
-        
+        public static void Recursion(int number)
+        {
+            if (number == 0)
+            {
+                return;
+            }
+            Console.WriteLine(number);
+            Recursion(number - 1);
+        }
+
     }
 }
