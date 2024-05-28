@@ -125,7 +125,7 @@ namespace paskaita_5
 
         public static bool IsNumberEven(int number)
         {
-            return number % 2 == 0
+            return number % 2 == 0;
         }
 
         public static double CalculateRectangleArea(double lenght, double width)
