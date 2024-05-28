@@ -8,17 +8,18 @@ namespace paskaita_5
         {
 
             //1.Uzduotis
-            //string skaicius = "";
-            //double suma = 0;
-            //do
-            //{
-            //    Console.WriteLine("Iveskite skaicius:");
-            //    skaicius = Console.ReadLine();
-            //    double.TryParse(skaicius, out double skaiciusint);
-            //    suma = suma + skaiciusint;
-            //    Console.WriteLine(suma);
-            //} while (!(skaicius == "baigti"));
-            //    Console.WriteLine($"galutine suma:" + suma);
+            string skaicius = "";
+            double suma = 0;
+            do
+            {
+                Console.WriteLine("Iveskite skaicius:");
+                skaicius = Console.ReadLine();
+                skaicius = skaicius.ToLower();
+                double.TryParse(skaicius, out double skaiciusint);
+                suma = suma + skaiciusint;
+                Console.WriteLine(suma);
+            } while (!(skaicius == "baigti"));
+            Console.WriteLine($"galutine suma:" + suma);
 
             // 2.Uzduotis
             //string slaptazodis = "";
