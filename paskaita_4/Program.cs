@@ -210,42 +210,55 @@ internal class Program
         //}
 
         // 11. Uzduotis
+        //int skaiciusint;
+        //bool arskaicius;
+        //do
+        //{
+        //    Console.WriteLine("Iveskite skaicius:");
+        //    string skaicius = Console.ReadLine();
+        //    arskaicius = int.TryParse(skaicius, out skaiciusint);
+        //    if (!arskaicius)
+        //    {
+        //        Console.WriteLine("Ivestas blogas skaicius, iveskite vel");
+        //    }
+        //} while (!arskaicius);
+        //Console.WriteLine(skaiciusint);
 
-        int skaiciusint;
-        bool arskaicius;
-        do
-        {
-            Console.WriteLine("Iveskite skaicius:");
-            string skaicius = Console.ReadLine();
-            arskaicius = int.TryParse(skaicius, out skaiciusint);
-            if (!arskaicius)
-            {
-                Console.WriteLine("Ivestas blogas skaicius, iveskite vel");
-            }
-        } while (!arskaicius);
-        Console.WriteLine(skaiciusint);
+        // 12. Uzduotis
+        //int i = 1;
+        //int atsakymas = 1;
+        //Console.WriteLine("Iveskite skaiciu:");
+        //string skaicius = Console.ReadLine();
+        //Console.WriteLine("Iveskite laipsnio skaiciu:");
+        //string laipsnis = Console.ReadLine();
+        //int.TryParse(skaicius, out int skaiciusint);
+        //int.TryParse(laipsnis, out int laipsnisint);
+        //atsakymas = skaiciusint * skaiciusint;
+        //while (i < laipsnisint - 1)
+        //{
+        //    atsakymas = atsakymas * skaiciusint;
+        //    i++;
+        //}
+        //Console.WriteLine($"Atsakymas:" + atsakymas);
 
-        Console.WriteLine("Enter a number:");
-        string input = Console.ReadLine();
-        int number;
-        bool isInt = int.TryParse(input, out number);
-
-        if (isInt)
-        {
-            Console.WriteLine("The entered number is an integer.");
-        }
-        else
-        {
-            Console.WriteLine("The entered value is not an integer.");
-        }
-<<<<<<< HEAD
-
-        //
-
-        
-
-=======
->>>>>>> 2cadc793cce39b50623452fe235631f173c871d3
+        // 13. Uzduotis
+        //int i=0;
+        //Console.WriteLine("Kiek norite pinigu:");
+        //string pinigai = Console.ReadLine();
+        //int.TryParse(pinigai, out int pinigaiint);
+        //int pinigailik50 = pinigaiint /50;
+        //int pinigailik10 = (pinigaiint - (pinigailik50 * 50)) / 10;
+        //while (i < pinigailik50)
+        //{
+        //    Console.Write("50,");
+        //    i++;
+        //}
+        //i = 0;
+        //while (i < pinigailik10)
+        //{
+        //    Console.Write("10,");
+        //    i++;
+        //}
 
     }
 }

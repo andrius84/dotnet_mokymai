@@ -7,41 +7,40 @@ namespace paskaita_5
         static void Main(string[] args)
         {
 
-            // 1.Uzduotis
+            //1.Uzduotis
             //string skaicius = "";
             //double suma = 0;
-            //while (!(skaicius == "baigti"))
+            //do
             //{
             //    Console.WriteLine("Iveskite skaicius:");
             //    skaicius = Console.ReadLine();
             //    double.TryParse(skaicius, out double skaiciusint);
-            //    suma = suma + skaiciusint; 
+            //    suma = suma + skaiciusint;
             //    Console.WriteLine(suma);
-            //}
-            //Console.WriteLine($"galutine suma:" + suma);
+            //} while (!(skaicius == "baigti"));
+            //    Console.WriteLine($"galutine suma:" + suma);
 
             // 2.Uzduotis
             //string slaptazodis = "";
-            //while (!(slaptazodis == "test123"))
+            //do
             //{
-            //    Console.WriteLine("Iveskite slaptazodi:");
+            //    Console.WriteLine("Iveskite slaptazodi:"); 
             //    slaptazodis = Console.ReadLine();
             //    if (!(slaptazodis == "test123"))
             //    {
             //        Console.WriteLine("SLAPTAZODIS NETEISINGAS");
             //    }
-            //}
-            //Console.WriteLine("********slaptazodis teisingas********");
+            //} while (!(slaptazodis == "test123")) ;
+            //    Console.WriteLine("********slaptazodis teisingas********");
 
             // 3.Uzduotis
-            
+
             //string password = "";
-            //string email = "";
-            
             //Console.WriteLine("Iveskite slaptazodi:");
             //password = Console.ReadLine();
             //Console.WriteLine(IsPasswordValid(password));
 
+            //string email = "";
             //Console.WriteLine("Iveskite email:");
             //email = Console.ReadLine();
             //Console.WriteLine(IsEmailValid(email));
@@ -53,7 +52,40 @@ namespace paskaita_5
 
             // 4.Uzduotis
 
+            //Console.WriteLine("Iveskite varda:");
+            //string firstName = Console.ReadLine();
+            //Console.WriteLine("Iveskite pavarde:");
+            //string lastName = Console.ReadLine();
+            //Console.WriteLine(GetInitials(firstName, lastName));
 
+            //Console.WriteLine("Enter radius:");
+            //string sradius = Console.ReadLine();
+            //double.TryParse(sradius, out double radius);
+            //Console.WriteLine("Enter height:");
+            //string sheight = Console.ReadLine();
+            //double.TryParse(sheight, out double height);
+            //Console.WriteLine($"Volume:" + CalculateCylinderVolume(radius, height));
+
+            //Console.WriteLine("Enter number:");
+            //string snumber = Console.ReadLine();
+            //int.TryParse(snumber, out int number);
+            //Console.WriteLine(IsNumberEven(number));
+            //if(IsNumberEven(number))
+            //{
+            //    Console.WriteLine("Number is even");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Number is odd");
+            //}
+
+            //Console.WriteLine("Enter lenght:");
+            //string slenght = Console.ReadLine();
+            //double.TryParse(slenght, out double lenght);
+            //Console.WriteLine("Enter width:");
+            //string swidth = Console.ReadLine();
+            //double.TryParse(swidth, out double width);
+            //Console.WriteLine($"Area:" + CalculateRectangleArea(lenght, width));
 
         }
         public static bool IsPasswordValid(string password)
@@ -100,7 +132,11 @@ namespace paskaita_5
             else return false;
         }
 
-
+        public static double CalculateRectangleArea(double lenght, double width)
+        {
+            double plotas = lenght * width;
+            return plotas;
+        }
 
         
     }
