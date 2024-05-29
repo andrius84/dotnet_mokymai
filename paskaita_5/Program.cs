@@ -2,7 +2,7 @@
 
 namespace paskaita_5
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -80,13 +80,13 @@ namespace paskaita_5
             //    Console.WriteLine("Number is odd");
             //}
 
-            Console.WriteLine("Enter lenght:");
-            string slenght = Console.ReadLine();
-            double.TryParse(slenght, out double lenght);
-            Console.WriteLine("Enter width:");
-            string swidth = Console.ReadLine();
-            double.TryParse(swidth, out double width);
-            Console.WriteLine($"Area:" + CalculateRectangleArea(lenght, width));
+            //Console.WriteLine("Enter lenght:");
+            //string slenght = Console.ReadLine();
+            //double.TryParse(slenght, out double lenght);
+            //Console.WriteLine("Enter width:");
+            //string swidth = Console.ReadLine();
+            //double.TryParse(swidth, out double width);
+            //Console.WriteLine($"Area:" + CalculateRectangleArea(lenght, width));
 
         }
         public static bool IsPasswordValid(string password)
