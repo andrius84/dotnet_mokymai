@@ -88,7 +88,7 @@ namespace paskaita_5
             //string swidth = Console.ReadLine();
             //double.TryParse(swidth, out double width);
             //Console.WriteLine($"Area:" + CalculateRectangleArea(lenght, width));
-            
+
             Console.WriteLine("Iveskite skaiciu:");
             string skaicius = Console.ReadLine();
             double.TryParse(skaicius, out double number);
@@ -120,24 +120,24 @@ namespace paskaita_5
         }
 
         public static double ConvertToEuros(double dollars)
-        {   
+        {
             return dollars * 0.85;
         }
 
-        public static string GetInitials (string fistName,string lastName)
+        public static string GetInitials(string fistName, string lastName)
         {
             return fistName + " " + lastName;
         }
 
-        public static double CalculateCylinderVolume (double radius, double height)
+        public static double CalculateCylinderVolume(double radius, double height)
         {
             double turis = Math.PI * Math.Pow(radius, 2) * height;
             return turis;
         }
 
-        public static bool IsNumberEven(double number,ref double mod, out double result)
-        
-        {    
+        public static bool IsNumberEven(double number, ref double mod, out double result)
+
+        {
             if (mod == 0)
             {
                 result = 0;
@@ -148,22 +148,21 @@ namespace paskaita_5
                 result = number / mod;
                 mod = number % mod;
                 return true;
-            } 
-
+            }
+        }
         public static double CalculateRectangleArea(double lenght, double width)
         {
-            return lenght * width;
+                return lenght * width;
         }
 
         public static void Recursion(int number)
         {
-            if (number == 0)
-            {
-                return;
-            }
-            Console.WriteLine(number);
-            Recursion(number - 1);
+                if (number == 0)
+                {
+                    return;
+                }
+                Console.WriteLine(number);
+                Recursion(number - 1);
         }
-
     }
 }
