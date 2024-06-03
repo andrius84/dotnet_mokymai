@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Xml.XPath;
 
 namespace paskaita_5
 {
@@ -53,7 +54,16 @@ namespace paskaita_5
 
             // 4.Uzduotis
 
-
+            Console.WriteLine("Iveskite skaiciu:");
+            string skaicius = Console.ReadLine();
+            double.TryParse(skaicius, out double number);
+            Console.WriteLine("Iveskite dalmeni:");
+            string skaicius2 = Console.ReadLine();
+            double.TryParse(skaicius2, out double mod);
+            //double result = 15;
+            Console.WriteLine(IsNumberEven(number, ref mod, out double result));
+            Console.WriteLine(result);
+            Console.WriteLine(mod);
 
         }
         public static bool IsPasswordValid(string password)
@@ -91,13 +101,20 @@ namespace paskaita_5
             return turis;
         }
 
-        public static bool IsNumberEven(int number)
-        {
-            if (number % 2 == 0)
+        public static bool IsNumberEven(double number,ref double mod, out double result)
+        
+        {    
+            if (mod == 0)
             {
-                return true;
+                result = 0;
+                return false;
             }
-            else return false;
+            else
+            {
+                result = number / mod;
+                mod = number % mod;
+                return true;
+            } 
         }
 
 
