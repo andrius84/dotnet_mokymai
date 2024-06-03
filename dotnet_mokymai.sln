@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_1Tests", "paskaita
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_2Tests", "paskaita_2Tests\paskaita_2Tests.csproj", "{563DD62E-9D2B-408E-B889-6A79833A31E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paskaita_8_ref_out", "paskaita_8_ref_out\paskaita_8_ref_out.csproj", "{583BF921-FBDF-4F80-B49F-45423E14B97E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_8_ref_out", "paskaita_8_ref_out\paskaita_8_ref_out.csproj", "{583BF921-FBDF-4F80-B49F-45423E14B97E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paskaita_9_for", "paskaita_9_for\paskaita_9_for.csproj", "{A29E220A-6EC8-4A22-866E-B2B1F5219AFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{583BF921-FBDF-4F80-B49F-45423E14B97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{583BF921-FBDF-4F80-B49F-45423E14B97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{583BF921-FBDF-4F80-B49F-45423E14B97E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29E220A-6EC8-4A22-866E-B2B1F5219AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29E220A-6EC8-4A22-866E-B2B1F5219AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29E220A-6EC8-4A22-866E-B2B1F5219AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29E220A-6EC8-4A22-866E-B2B1F5219AFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

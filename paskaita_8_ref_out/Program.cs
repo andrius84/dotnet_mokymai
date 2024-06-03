@@ -58,10 +58,15 @@
 
             // 6.
             Console.WriteLine("6. Uzduotis");
-            double number1 = 10;
-            double number2 = 2;
-            int remainder;
-            Console.WriteLine($"Result is {Divide(number1, number2, out remainder, string ans)}");
+            Console.WriteLine("Iveskite skaiciu:");
+            string skaicius = Console.ReadLine();
+            double.TryParse(skaicius, out double numbersk);
+            Console.WriteLine("Iveskite dalmeni:");
+            string skaicius2 = Console.ReadLine();
+            double.TryParse(skaicius2, out double mod);
+            Console.WriteLine(Divide(numbersk, ref mod, out double result));
+            Console.WriteLine(result);
+            Console.WriteLine(mod);
 
         }
         public static int Swap(ref int a, ref int b)
@@ -89,19 +94,20 @@
             Console.WriteLine("Enter your surname:");
             lastname = Console.ReadLine();
         }
-        public static double Divide(double number1, double number2, out int remainder)
+        public static bool Divide(double numbersk, ref double mod, out double result)
+
         {
-            if (number2 == 0)
+            if (mod == 0)
             {
-                Console.WriteLine("Division by zero is not allowed");
-                return ans = "Division by zero is not allowed";
-            } 
+                result = 0;
+                return false;
+            }
             else
             {
-                remainder = (int)number1 % (int)number2;
-                return number1 / number2;
+                result = numbersk / mod;
+                mod = numbersk % mod;
+                return true;
             }
-
         }
     }
 }

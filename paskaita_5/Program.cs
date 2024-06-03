@@ -89,17 +89,6 @@ namespace paskaita_5
             //double.TryParse(swidth, out double width);
             //Console.WriteLine($"Area:" + CalculateRectangleArea(lenght, width));
 
-            Console.WriteLine("Iveskite skaiciu:");
-            string skaicius = Console.ReadLine();
-            double.TryParse(skaicius, out double number);
-            Console.WriteLine("Iveskite dalmeni:");
-            string skaicius2 = Console.ReadLine();
-            double.TryParse(skaicius2, out double mod);
-            //double result = 15;
-            Console.WriteLine(IsNumberEven(number, ref mod, out double result));
-            Console.WriteLine(result);
-            Console.WriteLine(mod);
-
         }
         public static bool IsPasswordValid(string password)
         {
@@ -133,22 +122,6 @@ namespace paskaita_5
         {
             double turis = Math.PI * Math.Pow(radius, 2) * height;
             return turis;
-        }
-
-        public static bool IsNumberEven(double number, ref double mod, out double result)
-
-        {
-            if (mod == 0)
-            {
-                result = 0;
-                return false;
-            }
-            else
-            {
-                result = number / mod;
-                mod = number % mod;
-                return true;
-            }
         }
         public static double CalculateRectangleArea(double lenght, double width)
         {
