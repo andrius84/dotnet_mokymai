@@ -28,18 +28,12 @@
         {
             bool raides = slaptazodis.Any(char.IsLetter);
             int b = int.Parse(slaptazodis);
-            if (raides)
+            if (b == mypass && !raides)
             {
-                return "Slaptazodis neteisingas";
+                return "Slaptazodis teisingas";
             }
-            else if (b == mypass)
-            {
-                return "Slaptazodis neteisingas";
-            }
-            else
-            {
-                return "Slaptazodis neteisingas";
-            }
+            else return "Slaptazodis neteisingas";
+            
         
         }
             

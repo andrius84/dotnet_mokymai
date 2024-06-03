@@ -17,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_7_UnitTest", "pask
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_7", "paskaita_7\paskaita_7.csproj", "{C9A08E99-2327-4243-A6F8-2F6C539D9275}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paskaita_1Tests", "paskaita_1Tests\paskaita_1Tests.csproj", "{DB74B08B-7EF4-4E49-83F5-8845829C3C70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_1Tests", "paskaita_1Tests\paskaita_1Tests.csproj", "{DB74B08B-7EF4-4E49-83F5-8845829C3C70}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_2Tests", "paskaita_2Tests\paskaita_2Tests.csproj", "{563DD62E-9D2B-408E-B889-6A79833A31E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paskaita_8_ref_out", "paskaita_8_ref_out\paskaita_8_ref_out.csproj", "{583BF921-FBDF-4F80-B49F-45423E14B97E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{DB74B08B-7EF4-4E49-83F5-8845829C3C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB74B08B-7EF4-4E49-83F5-8845829C3C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB74B08B-7EF4-4E49-83F5-8845829C3C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563DD62E-9D2B-408E-B889-6A79833A31E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563DD62E-9D2B-408E-B889-6A79833A31E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563DD62E-9D2B-408E-B889-6A79833A31E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563DD62E-9D2B-408E-B889-6A79833A31E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583BF921-FBDF-4F80-B49F-45423E14B97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583BF921-FBDF-4F80-B49F-45423E14B97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583BF921-FBDF-4F80-B49F-45423E14B97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583BF921-FBDF-4F80-B49F-45423E14B97E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

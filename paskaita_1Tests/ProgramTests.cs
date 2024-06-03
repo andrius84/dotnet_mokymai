@@ -28,7 +28,7 @@ namespace paskaita_1.Tests
         public void Slaptazodis_GivenPasswordWithLetters_ReturnsIncorrectPasswordMessage()
         {
             // Arrange
-            string password = "1111a0000";
+            string password = "111110000";
             int mypass = 11110000;
 
             // Act
