@@ -15,7 +15,11 @@ namespace paskaita_9_for
             // Console.WriteLine("Even numbers count: " + CountEvenNumbersWithError());
             // PrintFibonacciWithError();
             // PrintSquaresWithError();
-            //Console.WriteLine(SumEvenNumbersWithError());
+            // Console.WriteLine(SumEvenNumbersWithError());
+            // PrintPricesFromOneToTen();
+            // PrintCoffeMachinesfromOneToFivewithPrices();
+            // PrintTableReservationFromOneToEight();
+            // PrintGymMachinesCheckedFromOneToTen();
 
         }
         static void PaprastasFor()
@@ -101,7 +105,37 @@ namespace paskaita_9_for
             }
             return sum;
         }
-        
-
+        public static void PrintPricesFromOneToTen()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"Price : {i} $");
+            }
+        }
+        public static void PrintCoffeMachinesfromOneToFivewithPrices()
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine($"Coffee Machine {i} checked");
+            }
+        }
+        public static void PrintTableReservationFromOneToEight()
+        {
+            for (int i = 1; i <= 8; i++)
+            {
+                Console.WriteLine($"Table {i} reserved");
+            }
+        }
+        public static void PrintGymMachinesCheckedFromOneToTen()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"Gym Machine {i} checked");
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine($"Gym Machine {i} is clean");
+                }
+            }
+        }
     }
 }
