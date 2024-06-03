@@ -3,27 +3,28 @@ using System.Xml.XPath;
 
 namespace paskaita_5
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
 
-            // 1.Uzduotis
+            //1.Uzduotis
             //string skaicius = "";
             //double suma = 0;
-            //while (!(skaicius == "baigti"))
+            //do
             //{
             //    Console.WriteLine("Iveskite skaicius:");
             //    skaicius = Console.ReadLine();
+            //    skaicius = skaicius.ToLower();
             //    double.TryParse(skaicius, out double skaiciusint);
-            //    suma = suma + skaiciusint; 
+            //    suma = suma + skaiciusint;
             //    Console.WriteLine(suma);
-            //}
-            //Console.WriteLine($"galutine suma:" + suma);
+            //} while (!(skaicius == "baigti"));
+            //Console.WriteLine("galutine suma:" + suma);
 
             // 2.Uzduotis
             //string slaptazodis = "";
-            //while (!(slaptazodis == "test123"))
+            //do
             //{
             //    Console.WriteLine("Iveskite slaptazodi:");
             //    slaptazodis = Console.ReadLine();
@@ -31,18 +32,17 @@ namespace paskaita_5
             //    {
             //        Console.WriteLine("SLAPTAZODIS NETEISINGAS");
             //    }
-            //}
+            //} while (!(slaptazodis == "test123"));
             //Console.WriteLine("********slaptazodis teisingas********");
 
             // 3.Uzduotis
-            
+
             //string password = "";
-            //string email = "";
-            
             //Console.WriteLine("Iveskite slaptazodi:");
             //password = Console.ReadLine();
             //Console.WriteLine(IsPasswordValid(password));
 
+            //string email = "";
             //Console.WriteLine("Iveskite email:");
             //email = Console.ReadLine();
             //Console.WriteLine(IsEmailValid(email));
@@ -50,10 +50,45 @@ namespace paskaita_5
             //Console.WriteLine("Iveskite suma doleriais:");
             //string dollars = Console.ReadLine();
             //double.TryParse(dollars, out double dollarsdouble);
-            //Console.WriteLine($"Turite " + ConvertToEuros(dollarsdouble) + " eurus");
+            //Console.WriteLine("Turite " + ConvertToEuros(dollarsdouble) + " eurus");
 
             // 4.Uzduotis
 
+            //Console.WriteLine("Iveskite varda:");
+            //string firstName = Console.ReadLine();
+            //Console.WriteLine("Iveskite pavarde:");
+            //string lastName = Console.ReadLine();
+            //Console.WriteLine(GetInitials(firstName, lastName));
+
+            //Console.WriteLine("Enter radius:");
+            //string sradius = Console.ReadLine();
+            //double.TryParse(sradius, out double radius);
+            //Console.WriteLine("Enter height:");
+            //string sheight = Console.ReadLine();
+            //double.TryParse(sheight, out double height);
+            //Console.WriteLine($"Volume:" + CalculateCylinderVolume(radius, height));
+
+            //Console.WriteLine("Enter number:");
+            //string snumber = Console.ReadLine();
+            //int.TryParse(snumber, out int number);
+            //Console.WriteLine(IsNumberEven(number));
+            //if(IsNumberEven(number))
+            //{
+            //    Console.WriteLine("Number is even");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Number is odd");
+            //}
+
+            //Console.WriteLine("Enter lenght:");
+            //string slenght = Console.ReadLine();
+            //double.TryParse(slenght, out double lenght);
+            //Console.WriteLine("Enter width:");
+            //string swidth = Console.ReadLine();
+            //double.TryParse(swidth, out double width);
+            //Console.WriteLine($"Area:" + CalculateRectangleArea(lenght, width));
+            
             Console.WriteLine("Iveskite skaiciu:");
             string skaicius = Console.ReadLine();
             double.TryParse(skaicius, out double number);
@@ -86,8 +121,7 @@ namespace paskaita_5
 
         public static double ConvertToEuros(double dollars)
         {   
-            double euro = dollars * 0.85;
-            return euro;
+            return dollars * 0.85;
         }
 
         public static string GetInitials (string fistName,string lastName)
@@ -115,10 +149,21 @@ namespace paskaita_5
                 mod = number % mod;
                 return true;
             } 
+
+        public static double CalculateRectangleArea(double lenght, double width)
+        {
+            return lenght * width;
         }
 
+        public static void Recursion(int number)
+        {
+            if (number == 0)
+            {
+                return;
+            }
+            Console.WriteLine(number);
+            Recursion(number - 1);
+        }
 
-
-        
     }
 }
