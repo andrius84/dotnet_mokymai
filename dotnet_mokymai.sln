@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_8_ref_out", "paska
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_9_for", "paskaita_9_for\paskaita_9_for.csproj", "{A29E220A-6EC8-4A22-866E-B2B1F5219AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paskaita_10_debug_string_builder", "paskaita_10_debug_string_builder\paskaita_10_debug_string_builder.csproj", "{71CD901A-BA54-486D-B45A-1F7A58C38788}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_10_debug_string_builder", "paskaita_10_debug_string_builder\paskaita_10_debug_string_builder.csproj", "{71CD901A-BA54-486D-B45A-1F7A58C38788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paskaita_10_debug_string_builderTests", "paskaita_10_debug_string_builderTests\paskaita_10_debug_string_builderTests.csproj", "{CA4F7BD9-7C3A-49D1-B69B-B566359AF90B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "paskaita_10_debug_string_builderTests", "paskaita_10_debug_string_builderTests\paskaita_10_debug_string_builderTests.csproj", "{CA4F7BD9-7C3A-49D1-B69B-B566359AF90B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paskaita_12_array", "paskaita_12_array\paskaita_12_array.csproj", "{049CBC25-B3AA-415C-A30E-CCAA748EF5A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{CA4F7BD9-7C3A-49D1-B69B-B566359AF90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA4F7BD9-7C3A-49D1-B69B-B566359AF90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA4F7BD9-7C3A-49D1-B69B-B566359AF90B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{049CBC25-B3AA-415C-A30E-CCAA748EF5A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{049CBC25-B3AA-415C-A30E-CCAA748EF5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{049CBC25-B3AA-415C-A30E-CCAA748EF5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{049CBC25-B3AA-415C-A30E-CCAA748EF5A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
