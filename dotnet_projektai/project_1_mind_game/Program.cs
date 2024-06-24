@@ -30,6 +30,22 @@ namespace project_1_mind_game
             { "Aurimas Aurukas", 11  },
             { "Mindaugas Mindukas", 12  },
             { "Aivaras Aivukas", 4  }
+
+            //{ "Lukas Lukis", 3  },
+            //{ "Atas Batukas", 3  },
+            //{ "Jonas Stulpis", 3  },
+            //{ "Petras Petriukas", 3  },
+            //{ "Kazys Kazlauskas", 3  },
+            //{ "Antanas Antanaitis", 3  },
+            //{ "Vytas Vytukas", 3  },
+            //{ "Mantas Mantukas", 3  },
+            //{ "Tomas Tomaitis", 3  },
+            //{ "Rokas Rokaitis", 3  },
+            //{ "Marius Mariukas", 3  },
+            //{ "Darius Dariukas", 3  },
+            //{ "Gintaras Gintukas", 3  },
+            //{ "Kęstas Kęstukas", 3  },
+            //{ "Rimas Rimukas", 3  }
         };
         // Klausimų sąrašas
         static Dictionary<string, List<string>> questionsAnimals = new Dictionary<string, List<string>>
@@ -67,7 +83,7 @@ namespace project_1_mind_game
                 Console.WriteLine("Sveiki, norėdami prisijungti įveskite vardą ir pavardę: ");
                 Console.WriteLine();
                 string username = Console.ReadLine();
-                string usercheck = CheckOrAddUsersToDictionary(username);
+                string usercheck = CheckOrAddUsersToList(username);
                 if (usercheck == "badusername")
                 {
                     Console.Clear();
@@ -178,7 +194,7 @@ namespace project_1_mind_game
                 }
             }
         }
-        public static string CheckOrAddUsersToDictionary(string username)
+        public static string CheckOrAddUsersToList(string username)
         {
             // Regex šablonas vartotojo vardo patikrinimui
             string pattern = @"^[A-Z][a-z]+ [A-Z][a-z]+$";
@@ -207,6 +223,7 @@ namespace project_1_mind_game
         public static void PrintGamesRules(string loggeduser)
         {
             Console.Clear();
+            Console.WriteLine();
             ShowLoggedUser(loggeduser);
             Console.WriteLine("----------------------------------------------------------------------------");
             Console.WriteLine();
@@ -224,6 +241,7 @@ namespace project_1_mind_game
         public static void PrintGameParticipants(string loggeduser)
         {
             Console.Clear();
+            Console.WriteLine();
             ShowLoggedUser(loggeduser);
             Console.WriteLine("----------------------------------------------------------------------------");
             Console.WriteLine();
@@ -386,6 +404,7 @@ namespace project_1_mind_game
             Console.Write($"Prisijungęs vartotojas: ");
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine(loggeduser);
+            Console.WriteLine();
             Console.ResetColor();
         }
         public static void ShowMenu()
@@ -395,6 +414,7 @@ namespace project_1_mind_game
             Console.WriteLine("3. Žaidimų rezultatų ir dalyvių peržiūra");
             Console.WriteLine("4. Žaidimo pradžia");
             Console.WriteLine("5. Išėjimas iš žaidimo");
+            Console.WriteLine();
         }
         public static void PrintUsersTopTable(string loggeduser, List<KeyValuePair<int, List<string>>> sortedGroup)
         {
