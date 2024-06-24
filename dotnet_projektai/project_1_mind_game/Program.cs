@@ -7,6 +7,7 @@ namespace project_1_mind_game
 {
     internal class Program
     {
+        // Vartotojų sąrašas
         static Dictionary<string, int> users = new Dictionary<string, int>
         {
             { "Ajus Dudada", 2  },
@@ -30,20 +31,26 @@ namespace project_1_mind_game
             { "Mindaugas Mindukas", 12  },
             { "Aivaras Aivukas", 4  }
         };
+        // Klausimų sąrašas
         static Dictionary<string, List<string>> questionsAnimals = new Dictionary<string, List<string>>
         {
             { "Kuris gyvūnas yra greičiausias sausumos gyvūnas?", new List<string> { "Gepardas", "Liūtas", "Arklys", "Antilopė" } },
             { "Kuris iš šių gyvūnų yra žinduolis?", new List<string> { "Delfinas", "Vėžlys", "Salamandra", "Krokodilas" } },
-            { "Kiek kojų turi vabzdžiai?", new List<string> { "6", "4", "8", "10" } }, 
+            { "Kiek kojų turi vabzdžiai?", new List<string> { "6", "4", "8", "10" } },
             { "Kokia gyvūnų grupė priklauso krokodilams, aligatoriams ir kaimanams?", new List<string> { "Ropliai", "Paukščiai", "Žuvys", "Žinduoliai", } },
             { "Kuris paukštis garsėja gebėjimu imituoti žmogaus kalbą?", new List<string> { "Papūga", "Žvirblis", "Gulbė", "Pelikanas" } },
-            { "Kuris iš šių gyvūnų yra plėšrūnas?", new List<string> { "Vilkas", "Katinas", "Šuo", "Žirafa" } }, 
+            { "Kuris iš šių gyvūnų yra plėšrūnas?", new List<string> { "Vilkas", "Katinas", "Šuo", "Žirafa" } },
             { "Kuris iš šių gyvūnų gyvena tik Australijoje?", new List<string> { "Koala", "Grizlis", "Vilkas", "Lūšis", } },
+            { "Kuris iš šių gyvūnų yra žoleėdis?", new List<string> { "Dramblys", "Liūtas", "Hiena", "Krokodilas" } },
+            { "Kuris iš šių gyvūnų rūšių gyvena ilgiausiai?", new List<string> { "Vėžlys", "Katė", "Dramblys", "Šuo" } },
             { "Kokia spalva yra flamingo plunksnos?", new List<string> { "Rožinė", "Žalia", "Mėlyna", "Geltona", } },
             { "Kuris gyvūnas laikomas žmonių evoliuciniu artimiausiu giminaičiu?", new List<string> { "Šimpanzė", "Gorila", "Orangutangas", "Bonobo" } },
             { "Kur gyvena poliariniai lokiai?", new List<string> { "Antarktidoje", "Pietų amerikoje", "Arktikoje", "Grenlandijoje" } },
             { "Koks yra didžiausias pasaulyje jūrų žinduolis?", new List<string> { "Mėlynasis banginis", "Ryklys", "Delfinas", "Jūrų liūtas" } },
-            { "Kas yra didžiausias pasaulyje paukštis?", new List<string> { "Afrikos strutsas", "Pelikanas", "Albatrasas", "Kondoras" } },
+            { "Kas yra didžiausias pasaulyje paukštis?", new List<string> { "Afrikos strutis", "Pelikanas", "Albatrasas", "Kondoras" } },
+            { "Kuris iš šių gyvūnų gali būti nuodinga?", new List<string> { "Gyvatė", "Kengūra", "Kiškis", "Delfinas" } },
+            { "Kuris iš šių gyvūnų migruoja ilgiausią atstumą?", new List<string> { "Baltasis garnys", "Pilkasis banginis", "Žirafa", "Arklys" } },
+            { "Kuris iš šių gyvūnų gyvena po vandeniu?", new List<string> { "Aštuonkojis", "Voverė", "Vanagas", "Liūtas" } }
         };
         static void Main(string[] args)
         {
@@ -51,11 +58,16 @@ namespace project_1_mind_game
             while (true)
             {
                 Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("**********************************************************");
+                Console.WriteLine("************************ Protmūšis ***********************");
+                Console.WriteLine("**********************************************************");
+                Console.ResetColor();
                 Console.WriteLine();
                 Console.WriteLine("Sveiki, norėdami prisijungti įveskite vardą ir pavardę: ");
                 Console.WriteLine();
                 string username = Console.ReadLine();
-                string usercheck = CheckOrAddUsersToList(username);
+                string usercheck = CheckOrAddUsersToDictionary(username);
                 if (usercheck == "badusername")
                 {
                     Console.Clear();
@@ -71,7 +83,7 @@ namespace project_1_mind_game
                 {
                     Console.Clear();
                     Console.WriteLine();
-                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     loggeduser = username;
                     Console.WriteLine($"Esamas vartotojas {loggeduser} sėkmingai prisijungtas prie žaidimo.");
                     Console.ResetColor();
@@ -84,8 +96,8 @@ namespace project_1_mind_game
                     Console.Clear();
                     Console.WriteLine();
                     loggeduser = username;
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.Write($"Sukurta nauja paskyra ir vartotojas {loggeduser} sėkmingai prisijungtas.");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine($"Sukurta nauja paskyra ir vartotojas {loggeduser} sėkmingai prisijungtas.");
                     Console.ResetColor();
                     Console.WriteLine();
                     Console.WriteLine("Spauskite ENTER, kad tęsti...");
@@ -113,31 +125,30 @@ namespace project_1_mind_game
                             ShowLoggedUser(loggeduser);
                             Console.WriteLine("----------------------------------------------------------------------------");
                             PrintGamesRules(loggeduser);
-                            Console.ReadLine();
                             break;
                         case "3":
                             Console.Clear();
                             ShowLoggedUser(loggeduser);
                             Console.WriteLine("----------------------------------------------------------------------------");
+                            Console.WriteLine();
                             Console.WriteLine("Pasirinkite: ");
+                            Console.WriteLine();
                             Console.WriteLine("1. Žaidimo dalyvių sąrašas");
                             Console.WriteLine("2. Žaidimo rezultatai");
                             string choice2 = Console.ReadLine();
                             switch (choice2)
-                            { 
+                            {
                                 case "1":
                                     Console.Clear();
                                     ShowLoggedUser(loggeduser);
                                     Console.WriteLine("----------------------------------------------------------------------------");
                                     PrintGameParticipants(loggeduser);
-                                    Console.ReadLine();
                                     break;
                                 case "2":
                                     Console.Clear();
                                     ShowLoggedUser(loggeduser);
                                     Console.WriteLine("----------------------------------------------------------------------------");
-                                    SortAndPrintGameResults(loggeduser);
-                                    Console.ReadLine();
+                                    PrintUsersTopTable(loggeduser, SortUsersResults());
                                     break;
                             }
                             break;
@@ -145,15 +156,13 @@ namespace project_1_mind_game
                             Console.Clear();
                             ShowLoggedUser(loggeduser);
                             Console.WriteLine("----------------------------------------------------------------------------");
-                            GameStart(loggeduser);
-                            Console.ReadLine();
+                            PlayGame(loggeduser);
                             break;
                         case "5":
                             Console.Clear();
                             ShowLoggedUser(loggeduser);
                             Console.WriteLine("----------------------------------------------------------------------------");
                             CloseApplication();
-                            Console.ReadLine();
                             break;
                         default:
                             Console.Clear();
@@ -169,10 +178,12 @@ namespace project_1_mind_game
                 }
             }
         }
-        public static string CheckOrAddUsersToList(string username)
+        public static string CheckOrAddUsersToDictionary(string username)
         {
+            // Regex šablonas vartotojo vardo patikrinimui
             string pattern = @"^[A-Z][a-z]+ [A-Z][a-z]+$";
             if (users.ContainsKey(username)) return "existuser";
+            // Vartotojo vardo patikrinimas pagal regex šabloną
             else if (Regex.IsMatch(username, pattern))
             {
                 users.Add(username, 0);
@@ -183,7 +194,7 @@ namespace project_1_mind_game
         public static string UserLogOut(string loggeduser)
         {
             Console.Write($"Vartotojas ");
-            Console.BackgroundColor = ConsoleColor.Green;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.Write(loggeduser);
             Console.ResetColor();
             Console.WriteLine(" atsijungė");
@@ -205,18 +216,10 @@ namespace project_1_mind_game
             Console.WriteLine();
             Console.WriteLine("Sveikiname prisijungus prie protmūšio programos. Šiame žaidime jums reikės atsakyti į 10 klausimų. /n " +
                               "Atsakant į klausimus jums bus pateikti 4 atsakymų variantai, reikės išsirinkti 1 teisingą variantą. /n " +
-                              "Už kiekvieną teisingą atsakymą gausite po 1 tašką. Jei atsakysite neteisingai, taškai nebus priskiriami. /n " +
-                              "Žaidimo metu galėsite pasinaudoti vienu iš dviejų, pagalbos variantų: 50/50, ar skambutis draugui. ");
+                              "Už kiekvieną teisingą atsakymą gausite po 1 tašką. Jei atsakysite neteisingai, taškai nebus priskiriami. /n ");
             Console.WriteLine();
             Console.WriteLine("Paspauskite 'q' jei norite grįžti atgal");
-            while (true)
-            {
-                var key = Console.ReadKey(true); // The true parameter prevents the key from being displayed
-                if (key.Key == ConsoleKey.Q)
-                {
-                    break; // Exits the loop immediately when 'q' is pressed
-                }
-            }
+            while (Console.ReadKey(true).Key != ConsoleKey.Q);
         }
         public static void PrintGameParticipants(string loggeduser)
         {
@@ -230,8 +233,170 @@ namespace project_1_mind_game
             {
                 Console.WriteLine($"{user.Key}");
             }
+            Console.WriteLine();
+            Console.WriteLine("Paspauskite 'q' jei norite grįžti atgal");
+            while (Console.ReadKey(true).Key != ConsoleKey.Q) ;
         }
-        public static void SortAndPrintGameResults(string loggeduser)
+        public static List<KeyValuePair<int, List<string>>> SortUsersResults()
+        {
+            // sudedame vartotojus iš dictionary į sąrašą
+            var userslist = users.ToList();
+            // Sukuriame dictionary, kuriame bus saugomos vartotojų grupės pagal taškus
+            Dictionary<int, List<string>> groupedUsers = new Dictionary<int, List<string>>();
+            // Ciklas, kuris eina per visus vartotojus ir surūšiuoja juos pagal taškus į grupes
+            for (int i = 0; i < users.Count; i++)
+            {
+                var user = userslist[i];
+                var score = user.Value;
+                var userName = user.Key;
+                // Patikriname ar toks taškų kiekis jau yra grupuotas
+                if (!groupedUsers.ContainsKey(score))
+                {
+                    // Jei nėra tokio taškų kiekio grupėje, sukuriam naują ir pridedam vartotoją į sąrašą
+                    groupedUsers[score] = new List<string> { userName };
+                }
+                else
+                {
+                    // Jei egzistuoja, pridedame vartotoją prie esamos grupės sarašo
+                    groupedUsers[score].Add(userName);
+                }
+            }
+            // Surūšiuojame grupes pagal taškus nuo didžiausio iki mažiausio
+            var sortedGroup = groupedUsers.OrderByDescending(x => x.Key).ToList();
+            return sortedGroup;
+        }
+        public static void PlayGame(string loggeduser)
+        {
+            Console.Clear();
+            int points = 0;
+            int questionnr = 1;
+            string showanser = "";
+            ShowLoggedUser(loggeduser);
+            Console.WriteLine("----------------------------------------------------------------------------");
+            Dictionary<string, string> questionsResults = new Dictionary<string, string>();
+            // Sudedame klausimus į sąrašą ir juos sumaišome
+            List<string> questionKeys = questionsAnimals.Keys.ToList();
+            var randomquestion = questionKeys.ToArray();
+            Random.Shared.Shuffle(randomquestion);
+            // Ciklas kalusimų atvaizdavimui ir atsakymų įvedimui
+            foreach (var question in randomquestion)
+            {
+                bool questionAnsweredCorrectly = false;
+                while (!questionAnsweredCorrectly)
+                {
+                    Console.Clear();
+                    ShowLoggedUser(loggeduser);
+                    Console.WriteLine("------------------------------------------------------------------------------");
+                    Console.WriteLine();
+                    Console.WriteLine($"Klausimas {questionnr} iš 10");
+                    Console.WriteLine($"Jūsų taškai: {points}");
+                    Console.WriteLine();
+                    Console.WriteLine(question);
+                    Console.WriteLine();
+                    // Paimami klausimo atsakymai ir sumaišomi
+                    List<string> answers = questionsAnimals[question];
+                    var randomanswers = answers.ToArray();
+                    Random.Shared.Shuffle(randomanswers);
+                    for (int i = 0; i < 4; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {randomanswers[i]}");
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Pasirinkite atsakymą: ");
+                    Console.WriteLine();
+                    string useranswer = Console.ReadLine();
+                    // String formato atsakymą paverčiame į skaičių ir patikriname ar jis yra teisingas
+                    if (int.TryParse(useranswer, out int userAnswerIndex) && userAnswerIndex >= 1 && userAnswerIndex <= 4)
+                    {
+                        if (randomanswers[userAnswerIndex - 1] == answers[0])
+                        {
+                            showanser = "teisingai";
+                            points++;
+                            questionsResults.Add(question, showanser);
+                            Console.BackgroundColor = ConsoleColor.Green;
+                            Console.WriteLine();
+                            Console.WriteLine($"Klausimas atsakytas - {showanser}");
+                            Console.ResetColor();
+                        }
+                        else
+                        {
+                            showanser = "neteisingai";
+                            questionsResults.Add(question, showanser);
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.WriteLine();
+                            Console.WriteLine($"Klausimas atsakytas - {showanser}");
+                            Console.WriteLine($"Teisingas atsakymas buvo: {answers[0]}");
+                            Console.ResetColor();
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine("Pauskite ENTER, kad tęsti žaidimą...");
+                        Console.ReadLine();
+                        questionAnsweredCorrectly = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Atsakymo įvedimas neteisingas, pasirinkite iš galimų variantų");
+                        Console.WriteLine();
+                        Console.WriteLine("Pauskite ENTER ir bandykite dar kartą...");
+                        Console.ReadLine();
+                    }
+
+                }
+                questionnr++;
+                if (questionnr >= 10)
+                {
+                    break;
+                }   
+            }
+            if (points > users[loggeduser])
+            {
+                users[loggeduser] = points;
+            }
+            Console.Clear();
+            ShowLoggedUser(loggeduser);
+            Console.WriteLine("------------------------------------------------------------------------------");
+            Console.WriteLine();
+            Console.WriteLine($"Iš viso surinkote taškų: {points}");
+            Console.WriteLine();
+            Console.WriteLine("Jūsų rezultatai ir klausimų atsakymai:");
+            Console.WriteLine();
+            //
+            foreach (var result in questionsResults)
+            {
+                Console.WriteLine($"Klausimas -> {result.Key} - atsakytas: {result.Value}");
+            }
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine("Jūsų pozicija tar visų žaidėjų:");
+            Console.WriteLine();
+            PrintLoggedUserResultInTable(loggeduser, SortUsersResults());
+            Console.WriteLine();
+            Console.WriteLine("Paspauskite 'q' jei norite grįžti atgal");
+            while (Console.ReadKey(true).Key != ConsoleKey.Q) ;
+        }
+        public static void CloseApplication()
+        {
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Programa uždaryta");
+            Console.ResetColor();
+            Environment.Exit(0);
+        }
+        public static void ShowLoggedUser(string loggeduser)
+        {
+            Console.Write($"Prisijungęs vartotojas: ");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine(loggeduser);
+            Console.ResetColor();
+        }
+        public static void ShowMenu()
+        {
+            Console.WriteLine("1. Atsijungimas");
+            Console.WriteLine("2. Žaidimo taisyklių atvaizdavimas");
+            Console.WriteLine("3. Žaidimų rezultatų ir dalyvių peržiūra");
+            Console.WriteLine("4. Žaidimo pradžia");
+            Console.WriteLine("5. Išėjimas iš žaidimo");
+        }
+        public static void PrintUsersTopTable(string loggeduser, List<KeyValuePair<int, List<string>>> sortedGroup)
         {
             Console.Clear();
             ShowLoggedUser(loggeduser);
@@ -239,32 +404,12 @@ namespace project_1_mind_game
             Console.WriteLine();
             Console.WriteLine("Žaidimo dalyvių rezultatai");
             Console.WriteLine();
-            var sortedUserslist = users.ToList();
-            Dictionary<int, List<string>> groupedUsers = new Dictionary<int, List<string>>();
-            // Ciklas, kuris eina per visus vartotojus ir surūšiuoja juos pagal taškus
-            for (int i = 0; i < users.Count; i++)
-            {
-                var user = sortedUserslist[i];
-                var score = user.Value;
-                var userName = user.Key;
-                // Patikriname ar toks taškų kiekis jau yra grupuotas
-                if (!groupedUsers.ContainsKey(score))
-                {
-                    // Jei ne, sukuriam naują grupę ir pridedam vartotoją
-                    groupedUsers[score] = new List<string> { userName };
-                }
-                else
-                {
-                    // Jei egzistuoja, tiesiog pridedam vartotoją prie esamos grupės
-                    groupedUsers[score].Add(userName);
-                }
-            }
-            // Surūšiuojame grupes pagal taškus
-            var sortedGroups = groupedUsers.OrderByDescending(g => g.Key).ToList();
             string overallRank = "";
-            for (int rank = 0; rank < sortedGroups.Count; rank++)
+            // Ciklas, kuris eina per surūšiuotas grupes ir atspausdina vartotojus
+            for (int rank = 0; rank < sortedGroup.Count; rank++)
             {
                 string stars;
+                // Nustatome žvaigždučių kiekį pagal vartotojo vietą reitinge ir bendrą reitingą
                 switch (rank)
                 {
                     case 0:
@@ -312,10 +457,12 @@ namespace project_1_mind_game
                         overallRank = "";
                         break;
                 }
-                // Gauname grupę pagal reitingą
-                var group = sortedGroups[rank];
+                // sukuriamas kintamasis, kuris laiko vartotojų grupę
+                var group = sortedGroup[rank];
+                // iš grupės paimamas taškų kiekis ir vartotojų sąrašas
                 int score = group.Key;
                 List<string> usersInGroup = group.Value;
+                // Ciklas, kuris eina per vartotojus grupėje ir atspausdina juos
                 foreach (var user in usersInGroup)
                 {
                     if (loggeduser == user)
@@ -330,157 +477,31 @@ namespace project_1_mind_game
                     }
                 }
             }
-        }
-        public static void GameStart(string loggeduser)   
-        {
-            Console.Clear();
-            int points = 0;
-            int questionnr = 1;
-            string showanser = "";
-            ShowLoggedUser(loggeduser);
-            Console.WriteLine("----------------------------------------------------------------------------");
-            Dictionary<string, string> questionsResults = new Dictionary<string, string>();
-            // Sudedame klausimus į sąrašą ir juos sumaišome
-            List<string> questionKeys = questionsAnimals.Keys.ToList(); 
-            var randomquestion = questionKeys.ToArray(); 
-            Random.Shared.Shuffle(randomquestion);
-            // Ciklas, kuris eina per visus klausimus
-            foreach (var question in randomquestion)
-                {
-                Console.Clear();
-                ShowLoggedUser(loggeduser);
-                Console.WriteLine("------------------------------------------------------------------------------");
-                Console.WriteLine();
-                Console.WriteLine($"Klausimas {questionnr} iš 5");
-                Console.WriteLine($"Jūsų taškai: {points}");
-                Console.WriteLine();
-                Console.BackgroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine(question);
-                Console.ResetColor();
-                // Paimami klausimo atsakymai ir sumaišomi
-                List<string> answers = questionsAnimals[question];
-                var randomanswers = answers.ToArray();
-                Random.Shared.Shuffle(randomanswers);
-                for (int i = 0; i < 4; i++)
-                {
-                    Console.WriteLine($"{i + 1}. {randomanswers[i]}");
-                }
-                Console.WriteLine();
-                Console.WriteLine("Pasirinkite atsakymą: ");
-                string useranswer = Console.ReadLine();
-                // String formato atsakymą paverčiame į skaičių ir patikriname ar jis yra teisingas
-                int.TryParse(useranswer, out int userAnswerIndex);
-                if (randomanswers[userAnswerIndex-1] == answers[0])
-                {
-                    showanser = "teisingai";
-                    points++;
-                    questionsResults.Add(question, showanser);
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"Klausimas atsakytas - {showanser}");
-                    Console.ResetColor();
-                    Console.WriteLine();
-                    Console.WriteLine("Pauskite ENTER, kad tęsti žaidimą...");
-                    Console.ReadLine();
-                }
-                else
-                {
-                    showanser = "neteisingai";
-                    questionsResults.Add(question, showanser);
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Klausimas atsakytas - {showanser}");
-                    Console.ResetColor();
-                    Console.WriteLine();
-                    Console.WriteLine($"Teisingas atsakymas buvo: {answers[0]}");
-                    Console.ReadLine();
-                    Console.WriteLine("Pauskite ENTER, kad tęsti žaidimą...");
-                    Console.ReadLine();
-                }
-                if (useranswer == "q")
-                {
-                    break;
-                }
-                if (questionnr >= 10)
-                {
-                    break;
-                }
-                questionnr++;
-            }
-            if ( points > users[loggeduser])
-            {
-                users[loggeduser] = points;
-            }
-            Console.Clear();
-            ShowLoggedUser(loggeduser);
-            Console.WriteLine("------------------------------------------------------------------------------");
             Console.WriteLine();
-            Console.WriteLine($"Iš viso surinkote taškų: {points}");
-            Console.WriteLine("Jūsų rezultatai ir klausimų atsakymai:");
-            Console.WriteLine();
-            foreach (var result in questionsResults)
+            Console.WriteLine("Paspauskite 'q' jei norite grįžti atgal");
+            while (Console.ReadKey(true).Key != ConsoleKey.Q) ;
+        }
+        public static void PrintLoggedUserResultInTable(string loggeduser, List<KeyValuePair<int, List<string>>> sortedGroup)
+        {
+            string overallRank = "";
+            // Ciklas, kuris eina per surūšiuotas grupes ir atspausdina vartotojus
+            for (int rank = 0; rank < sortedGroup.Count; rank++)
             {
-                Console.WriteLine($"{result.Key}, klausimas atsakytas: {result.Value}");
-            }
-            Console.WriteLine("-------------------------------------------------------------------------------");
-            Console.WriteLine("Jūsų pozicija tar visų žaidėjų:");
-            SortAndPrintGameResults(loggeduser);
-        }
-        public static void CloseApplication()
-        {
-            Console.Clear();
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Programa uždaryta");
-            Console.ResetColor();
-            Environment.Exit(0);
-        }
-        public static void ShowLoggedUser(string loggeduser)
-        {
-            Console.Write($"Prisijungęs vartotojas: ");
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.WriteLine(loggeduser);
-            Console.ResetColor();
-        }
-        public static void ShowMenu()
-        {
-            Console.WriteLine("1. Atsijungimas");
-            Console.WriteLine("2. Žaidimo taisyklių atvaizdavimas");
-            Console.WriteLine("3. Žaidimų rezultatų ir dalyvių peržiūra");
-            Console.WriteLine("4. Žaidimo pradžia");
-            Console.WriteLine("5. Išėjimas iš žaidimo");
-        }
-        public static void PositionInUserList(string loggeduser)
-        {
-            var sortedUserslist = users.ToList();
-            Dictionary<int, List<string>> groupedUsers = new Dictionary<int, List<string>>();
-            for (int i = 0; i < users.Count; i++)
-            {
-                var user = sortedUserslist[i];
-                var score = user.Value;
-                var userName = user.Key;
-                if (!groupedUsers.ContainsKey(score))
-                {
-                    groupedUsers[score] = new List<string> { userName };
-                }
-                else
-                {
-                    groupedUsers[score].Add(userName);
-                }
-            }
-            var sortedGroups = groupedUsers.OrderByDescending(g => g.Key).ToList();
-            for (int rank = 0; rank < sortedGroups.Count; rank++)
-            {
-                var group = sortedGroups[rank];
+                var group = sortedGroup[rank];
                 int score = group.Key;
                 List<string> usersInGroup = group.Value;
                 foreach (var user in usersInGroup)
                 {
                     if (loggeduser == user)
                     {
-                        Console.BackgroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"{user} - jūsų taškai: {score} ");
+                        overallRank = $"{rank + 1}.";
+                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine($"{overallRank} {user} - jūsų taškai: {score}");
                         Console.ResetColor();
                     }
                 }
             }
+
         }
     }
 }
