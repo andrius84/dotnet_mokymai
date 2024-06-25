@@ -233,7 +233,8 @@ namespace project_1_mind_game
             Console.WriteLine();
             Console.WriteLine("Sveikiname prisijungus prie protmūšio programos. Šiame žaidime jums reikės atsakyti į 10 klausimų. /n " +
                               "Atsakant į klausimus jums bus pateikti 4 atsakymų variantai, reikės išsirinkti 1 teisingą variantą. /n " +
-                              "Už kiekvieną teisingą atsakymą gausite po 1 tašką. Jei atsakysite neteisingai, taškai nebus priskiriami. /n ");
+                              "Už kiekvieną teisingą atsakymą gausite po 1 tašką. Jei atsakysite neteisingai, taškai nebus priskiriami. /n" +
+                              "Žaisdami galite pasinaudoti pagalba parašę d ir paspaudę enter, kuri panaikins du neteisingus atsakymus." );
             Console.WriteLine();
             Console.WriteLine("Paspauskite 'q' jei norite grįžti atgal");
             while (Console.ReadKey(true).Key != ConsoleKey.Q);
@@ -315,7 +316,7 @@ namespace project_1_mind_game
                     Console.WriteLine($"Jūsų taškai: {points}");
                     if (gameHelp == 1)
                     {
-                        Console.WriteLine("Žaidime Jūs turite galimybę vieną kartą pasirinkti salės pagalbą. Spauskite >d<");
+                        Console.WriteLine("Galite pasinaudoti pagalba, kuri panaikins du neteisingus atsakymus. Jei norite pasinaudoti rašykite d.");
                     }
                     Console.WriteLine();
                     Console.WriteLine(question);
