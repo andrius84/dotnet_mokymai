@@ -50,23 +50,23 @@ namespace project_1_mind_game
         // Klausimų sąrašas
         static Dictionary<string, List<string>> questionsAnimals = new Dictionary<string, List<string>>
         {
-            { "Kuris gyvūnas yra greičiausias sausumos gyvūnas?", new List<string> { "Gepardas", "Liūtas", "Arklys", "Antilopė" } },
+            { "Kas yra greičiausias sausumos gyvūnas?", new List<string> { "Gepardas", "Liūtas", "Arklys", "Antilopė" } },
             { "Kuris iš šių gyvūnų yra žinduolis?", new List<string> { "Delfinas", "Vėžlys", "Salamandra", "Krokodilas" } },
             { "Kiek kojų turi vabzdžiai?", new List<string> { "6", "4", "8", "10" } },
-            { "Kokia gyvūnų grupė priklauso krokodilams, aligatoriams ir kaimanams?", new List<string> { "Ropliai", "Paukščiai", "Žuvys", "Žinduoliai", } },
+            { "Kokia grupei priklauso krokodilai, aligatoriai ir kaimanai?", new List<string> { "Ropliai", "Paukščiai", "Žuvys", "Žinduoliai", } },
             { "Kuris paukštis garsėja gebėjimu imituoti žmogaus kalbą?", new List<string> { "Papūga", "Žvirblis", "Gulbė", "Pelikanas" } },
             { "Kuris iš šių gyvūnų yra plėšrūnas?", new List<string> { "Vilkas", "Katinas", "Šuo", "Žirafa" } },
             { "Kuris iš šių gyvūnų gyvena tik Australijoje?", new List<string> { "Koala", "Grizlis", "Vilkas", "Lūšis", } },
             { "Kuris iš šių gyvūnų yra žoleėdis?", new List<string> { "Dramblys", "Liūtas", "Hiena", "Krokodilas" } },
-            { "Kuris iš šių gyvūnų rūšių gyvena ilgiausiai?", new List<string> { "Vėžlys", "Katė", "Dramblys", "Šuo" } },
-            { "Kokia spalva yra flamingo plunksnos?", new List<string> { "Rožinė", "Žalia", "Mėlyna", "Geltona", } },
+            { "Kuris iš šių gyvūnų gyvena ilgiausiai?", new List<string> { "Vėžlys", "Katė", "Dramblys", "Šuo" } },
+            { "Kokia yra flamingo plunksnos spalva?", new List<string> { "Rožinė", "Žalia", "Mėlyna", "Geltona", } },
             { "Kuris gyvūnas laikomas žmonių evoliuciniu artimiausiu giminaičiu?", new List<string> { "Šimpanzė", "Gorila", "Orangutangas", "Bonobo" } },
             { "Kur gyvena poliariniai lokiai?", new List<string> { "Antarktidoje", "Pietų amerikoje", "Arktikoje", "Grenlandijoje" } },
             { "Koks yra didžiausias pasaulyje jūrų žinduolis?", new List<string> { "Mėlynasis banginis", "Ryklys", "Delfinas", "Jūrų liūtas" } },
-            { "Kas yra didžiausias pasaulyje paukštis?", new List<string> { "Afrikos strutis", "Pelikanas", "Albatrasas", "Kondoras" } },
-            { "Kuris iš šių gyvūnų gali būti nuodinga?", new List<string> { "Gyvatė", "Kengūra", "Kiškis", "Delfinas" } },
-            { "Kuris iš šių gyvūnų migruoja ilgiausią atstumą?", new List<string> { "Baltasis garnys", "Pilkasis banginis", "Žirafa", "Arklys" } },
-            { "Kuris iš šių gyvūnų gyvena po vandeniu?", new List<string> { "Aštuonkojis", "Voverė", "Vanagas", "Liūtas" } }
+            { "Kuris iš šių paukščių yra didžiausias?", new List<string> { "Afrikos strutis", "Pelikanas", "Albatrasas", "Kondoras" } },
+            { "Kuris iš šių gyvūnų gali būti nuodingas?", new List<string> { "Gyvatė", "Barsukas", "Skruzdėda", "Ryklys" } },
+            { "Kuris iš šių gyvūnų migruoja ilgiausią atstumą?", new List<string> { "Baltasis garnys", "Pilkasis banginis", "Antilopė", "Lokys" } },
+            { "Kuris iš šių gyvūnų gyvena po vandeniu?", new List<string> { "Aštuonkojis", "Žiurkė", "Pingvinas", "Skruzdėlė" } }
         };
         static void Main(string[] args)
         {
@@ -288,6 +288,7 @@ namespace project_1_mind_game
             Console.Clear();
             int points = 0;
             int questionnr = 1;
+            int gameHelp = 1;
             string showanser = "";
             ShowLoggedUser(loggeduser);
             Console.WriteLine("----------------------------------------------------------------------------");
@@ -300,6 +301,10 @@ namespace project_1_mind_game
             foreach (var question in randomquestion)
             {
                 bool questionAnsweredCorrectly = false;
+                // Paimami klausimo atsakymai ir sumaišomi
+                List<string> answers = questionsAnimals[question];
+                var randomanswers = answers.ToArray();
+                Random.Shared.Shuffle(randomanswers);
                 while (!questionAnsweredCorrectly)
                 {
                     Console.Clear();
@@ -308,13 +313,13 @@ namespace project_1_mind_game
                     Console.WriteLine();
                     Console.WriteLine($"Klausimas {questionnr} iš 10");
                     Console.WriteLine($"Jūsų taškai: {points}");
+                    if (gameHelp == 1)
+                    {
+                        Console.WriteLine("Žaidime Jūs turite galimybę vieną kartą pasirinkti salės pagalbą. Spauskite >d<");
+                    }
                     Console.WriteLine();
                     Console.WriteLine(question);
                     Console.WriteLine();
-                    // Paimami klausimo atsakymai ir sumaišomi
-                    List<string> answers = questionsAnimals[question];
-                    var randomanswers = answers.ToArray();
-                    Random.Shared.Shuffle(randomanswers);
                     for (int i = 0; i < 4; i++)
                     {
                         Console.WriteLine($"{i + 1}. {randomanswers[i]}");
@@ -323,6 +328,35 @@ namespace project_1_mind_game
                     Console.WriteLine("Pasirinkite atsakymą: ");
                     Console.WriteLine();
                     string useranswer = Console.ReadLine();
+                    if (useranswer == "d" && gameHelp == 1)
+                    {
+                        Console.Clear();
+                        ShowLoggedUser(loggeduser);
+                        Console.WriteLine("------------------------------------------------------------------------------");
+                        Console.WriteLine();
+                        Console.WriteLine($"Klausimas {questionnr} iš 10");
+                        Console.WriteLine($"Jūsų taškai: {points}");
+                        Console.WriteLine();
+                        Console.WriteLine(question);
+                        Console.WriteLine();
+                        gameHelp--;
+                        // 
+                        if ((randomanswers[0]) == answers[0] || randomanswers[1] == answers[0])
+                        {
+                            Console.WriteLine($"{1}. {randomanswers[0]}");
+                            Console.WriteLine($"{2}. {randomanswers[1]}");
+                        }
+                        else
+                        {
+                            randomanswers[1] = answers[0];
+                            Console.WriteLine($"{1}. {randomanswers[0]}");
+                            Console.WriteLine($"{2}. {randomanswers[1]}");
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine("Pasirinkite atsakymą: ");
+                        Console.WriteLine();
+                        useranswer = Console.ReadLine();
+                    }
                     // String formato atsakymą paverčiame į skaičių ir patikriname ar jis yra teisingas
                     if (int.TryParse(useranswer, out int userAnswerIndex) && userAnswerIndex >= 1 && userAnswerIndex <= 4)
                     {
