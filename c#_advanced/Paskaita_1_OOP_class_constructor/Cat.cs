@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Paskaita_1_OOP_class_constructor
 {
-    internal class School
+    internal class Cat
     {
-        public School(string name, string city, int numberofstudents)
+        public Cat() 
+        {    
+        }
+        public Cat(string name, int age)
         {
             Name = name;
-            City = city;
-            NumberOfStudents = numberofstudents;
+            Age = age;
         }
         public string Name { get; set; }
-        public string City { get; set; }
-        public int NumberOfStudents { get; set; }
+        public int Age { get; set; }
     }
 }
