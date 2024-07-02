@@ -1,4 +1,6 @@
-﻿namespace Paskaita_2_class_methods
+﻿using System;
+
+namespace Paskaita_2_class_methods
 {
     internal class Program
     {
@@ -28,15 +30,15 @@
             //Console.WriteLine("Perimetras: " + rectangle.GetPerimeter());
 
 
-            var library = new Library();
-            library.AddBook("Book1");
-            library.AddBook("Book2");
-            library.AddBook("Book3");
-            library.AddBook("Book4");
-            library.AddBook("Book5");
-            library.AddBook("Book6");
+            List<Library> Books = new List<Library>();
+            Books.Add(new Library());
 
-            library.RemoveBook("Book4");
+            Books[0].AddBook("Book1");
+            Books[0].AddBook("Book2");
+            Books[0].AddBook("Book3");
+
+            
+
 
         }
     }
