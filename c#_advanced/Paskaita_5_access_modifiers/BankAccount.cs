@@ -64,8 +64,5 @@ namespace Paskaita_5_access_modifiers
                 Console.WriteLine("Nepakankamas balansas");
             }
         }
-
-
-
     }
 }
