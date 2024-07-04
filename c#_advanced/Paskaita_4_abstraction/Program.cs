@@ -23,15 +23,15 @@
             //}
 
 
-            var Car = new Car("Audi", 2010);
-            var Motorcycle = new Motorcycle("Suzuki", 2019);
-            var Truck = new Truck("Volvo", 2015);
+            var car = new Car("Audi", 2010);
+            var motorcycle = new Motorcycle("Suzuki", 2019);
+            var truck = new Truck("Volvo", 2015);
 
             var ListOfVehicles = new List<Vehicle>();
 
-            ListOfVehicles.Add(Car);
-            ListOfVehicles.Add(Motorcycle);
-            ListOfVehicles.Add(Truck);
+            ListOfVehicles.Add(car);
+            ListOfVehicles.Add(motorcycle);
+            ListOfVehicles.Add(truck);
 
             foreach (var vehicle in ListOfVehicles)
             {
@@ -42,9 +42,10 @@
             var Passenger = new Passenger();
             var DrivingInstructor = new DrivingInstructor();
 
-            Driver.AddVehicle(Car);
-            Passenger.AddVehicle(Motorcycle);
-            DrivingInstructor.AddVehicle(Truck);
+            Driver.AddVehicle(car);
+            Driver.AddVehicle(motorcycle);
+            Passenger.AddVehicle(motorcycle);
+            DrivingInstructor.AddVehicle(truck);
 
             foreach (var vehicle in Driver.Vehicles)
             {
