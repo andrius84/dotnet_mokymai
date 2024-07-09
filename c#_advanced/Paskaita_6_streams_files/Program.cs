@@ -12,13 +12,14 @@
 
 
             //2.
-            var darbasSuFailais = new DarbasSuFailais();
-
-            var tesktas = darbasSuFailais.ReadFileContent("tekstas.txt");
-
-
+            //var darbasSuFailais = new DarbasSuFailais();
+            //var tesktas = darbasSuFailais.ReadFileContent("tekstas.txt");
             //darbasSuFailais.SupratimoUzduotis1("tekstas.txt");
 
+            //3.
+            var smalsumas = new smalsumas();
+            //smalsumas.OptimizacijosUzdavinys("tekstas.txt", 50000);
+            smalsumas.OptimizacijosUzdavinys("bigdata.txt", 10);
 
 
         }
