@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_6_streams_files", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mini_project", "mini_project\mini_project.csproj", "{5260C1B7-7E09-4A24-9B3E-87FDD7859704}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita_7_generic", "Paskaita_7_generic\Paskaita_7_generic.csproj", "{719DB3B5-8913-48FA-AA68-AE30F688FFA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_7_generic", "Paskaita_7_generic\Paskaita_7_generic.csproj", "{719DB3B5-8913-48FA-AA68-AE30F688FFA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project_doomsday_warehouse", "project_doomsday_warehouse\project_doomsday_warehouse.csproj", "{723DA7D2-C7A3-4610-BA00-FBC9D3FF798B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{719DB3B5-8913-48FA-AA68-AE30F688FFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{719DB3B5-8913-48FA-AA68-AE30F688FFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{719DB3B5-8913-48FA-AA68-AE30F688FFA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{723DA7D2-C7A3-4610-BA00-FBC9D3FF798B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{723DA7D2-C7A3-4610-BA00-FBC9D3FF798B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{723DA7D2-C7A3-4610-BA00-FBC9D3FF798B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{723DA7D2-C7A3-4610-BA00-FBC9D3FF798B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
