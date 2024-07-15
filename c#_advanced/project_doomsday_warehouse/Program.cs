@@ -26,6 +26,9 @@ namespace project_doomsday_warehouse
             var weaponItems = warehouse2.GetItems();
 
 
+            var item = warehouse.GetItem("Banana");
+
+
 
 
 
