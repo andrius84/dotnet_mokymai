@@ -6,43 +6,43 @@ using System.Threading.Tasks;
 
 namespace project_doomsday_warehouse
 {
-    internal class Warehouse<T>
+    internal class Warehouse<T> where T : InventoryItem
     {
-        
         public void AddItem(T item)
         {
-            Console.WriteLine($"Adding {item} to the warehouse");
-            string filePath = "C:/dotnet_mokymai/c#_advanced/project_doomsday_warehouse/food.csv";
-            File.WriteAllText(filePath, item.ToString());
-
+            Console.WriteLine($"Adding {item.Name} to the warehouse");
+            var items = item.ConvertToCsvLine() + Environment.NewLine;
+            var path = typeof(T).Name + ".csv";
+            File.AppendAllText(path, items);
         }
+
         public List<T> GetItems()
         {
-            return new List<T>();
+            Console.WriteLine("Getting items from the warehouse");
+            var path = typeof(T).Name + ".csv";
+            var lines = File.ReadAllLines(path);
+            var items = new List<T>();
+            foreach (var line in lines)
+            {
+                var item = Activator.CreateInstance<T>();
+                item.Parse(line);
+                items.Add(item);
+            }
+            return items;
         }
-        public void GetItem<T>(string name)
-        {
-            Console.WriteLine($"Getting {name} from the warehouse");
-        }
-    }
 
-    internal abstract class InventoryItem 
-    {
-        public string Name { get; set; }
-        public double Weight { get; set; }
-    }
-    internal class FoodItem : InventoryItem
-    {
-        public DateOnly ExpiringDate { get; set; }
-        public int Calories { get; set; }
-    }
-    internal class WeaponItem : InventoryItem
-    {
-        public string WeaponDamage { get; set; }
-    }
-    internal class MedicalItem : InventoryItem
-    {
-        public DateOnly ExpiringDate { get; set; }
-        public string MedicalUse { get; set; }
+        public T GetItem(string name)
+        {
+            Console.WriteLine($"Getting items from the warehouse with name {name}");
+            var items = GetItems();
+            foreach (var item in items)
+            {
+                if (item.Name == name)
+                {
+                    return item;
+                }
+            }
+            return default(T);
+        }
     }
 }
