@@ -10,18 +10,15 @@ namespace project_doomsday_warehouse
     {
         public void AddItem(T item)
         {
-            Console.WriteLine($"Adding {item.Name} to the warehouse");
             var items = item.ConvertToCsvLine() + Environment.NewLine;
-            var path = typeof(T).Name + ".csv";
+            var path = "../../../" + typeof(T).Name + ".csv";
             File.AppendAllText(path, items);
         }
-
         public List<T> GetItems()
         {
-            Console.WriteLine("Getting items from the warehouse");
-            var path = typeof(T).Name + ".csv";
-            var lines = File.ReadAllLines(path);
             var items = new List<T>();
+            var path = "../../../" + typeof(T).Name + ".csv";
+            var lines = File.ReadAllLines(path);
             foreach (var line in lines)
             {
                 var item = Activator.CreateInstance<T>();
@@ -30,10 +27,8 @@ namespace project_doomsday_warehouse
             }
             return items;
         }
-
         public T GetItem(string name)
         {
-            Console.WriteLine($"Getting items from the warehouse with name {name}");
             var items = GetItems();
             foreach (var item in items)
             {
