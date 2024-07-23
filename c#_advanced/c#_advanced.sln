@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_8_exceptions", "Pa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_9_extensions", "Paskaita_9_extensions\Paskaita_9_extensions.csproj", "{CA8A77C8-7DD6-4163-B893-CB5DC6FD7A5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita_10_delegates", "Paskaita_10_delegates\Paskaita_10_delegates.csproj", "{B7721BEF-CF04-4105-8EFD-5EBA96E02C91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_10_delegates", "Paskaita_10_delegates\Paskaita_10_delegates.csproj", "{B7721BEF-CF04-4105-8EFD-5EBA96E02C91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita_11_linq", "Paskaita_11_linq\Paskaita_11_linq.csproj", "{2B367079-B5DC-45E2-A19D-9A39D67CA1BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{B7721BEF-CF04-4105-8EFD-5EBA96E02C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7721BEF-CF04-4105-8EFD-5EBA96E02C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7721BEF-CF04-4105-8EFD-5EBA96E02C91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B367079-B5DC-45E2-A19D-9A39D67CA1BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B367079-B5DC-45E2-A19D-9A39D67CA1BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B367079-B5DC-45E2-A19D-9A39D67CA1BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B367079-B5DC-45E2-A19D-9A39D67CA1BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
