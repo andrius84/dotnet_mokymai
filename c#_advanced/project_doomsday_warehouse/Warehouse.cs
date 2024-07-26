@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project_doomsday_warehouse.Constructors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,38 +7,97 @@ using System.Threading.Tasks;
 
 namespace project_doomsday_warehouse
 {
-    internal class Warehouse<T> where T : InventoryItem
+    public class Warehouse<T> : IWarehouse<T> where T : InventoryItem, new()
     {
+        private readonly List<IMyLogger> _loggers;
+        private readonly string _filePath;
+        public Warehouse(string filePath, IMyLogger logger)
+        {
+            _filePath = filePath;
+            _loggers = new List<IMyLogger> { logger };
+        }
         public void AddItem(T item)
         {
+            try
+            { 
             var items = item.ConvertToCsvLine() + Environment.NewLine;
-            var path = "../../../" + typeof(T).Name + ".csv";
-            File.AppendAllText(path, items);
+            File.AppendAllText(_filePath, items);
+            Log($"Item {item.Name} added successfully");
+            }
+            catch (Exception ex)
+            {
+                //TODO log error
+                Console.WriteLine("Error occurred while adding item: " + ex.Message);
+            }
         }
         public List<T> GetItems()
         {
-            var items = new List<T>();
-            var path = "../../../" + typeof(T).Name + ".csv";
-            var lines = File.ReadAllLines(path);
-            foreach (var line in lines)
+            try
             {
-                var item = Activator.CreateInstance<T>();
-                item.Parse(line);
-                items.Add(item);
+                var items = new List<T>();
+                var lines = File.ReadAllLines(_filePath);
+                foreach (var line in lines)
+                {
+                    var item = Activator.CreateInstance<T>();
+                    item.Parse(line);
+                    items.Add(item);
+                }
+                Log("Items retrieved successfully");
+                return items;
             }
-            return items;
+            catch (Exception ex)
+            {
+                //TODO log error
+                Console.WriteLine("Error occurred while getting items: " + ex.Message);
+                return new List<T>();
+            }
         }
         public T GetItem(string name)
         {
-            var items = GetItems();
-            foreach (var item in items)
+            try
             {
-                if (item.Name == name)
+                var items = GetItems();
+                foreach (var item in items)
                 {
-                    return item;
+                    if (item.Name == name)
+                    {
+                        return item;
+                    }
                 }
+                Log($"Item {name} not found");
+                return default(T);
             }
-            return default(T);
+            catch (Exception ex)
+            {
+                //TODO log error
+                Console.WriteLine("Error occurred while getting item: " + ex.Message);
+                return default(T);
+            }
         }
+        public void RemoveItem(string name)
+        {
+            var items = GetItems();
+            if (items != null)
+            {
+                items.RemoveAll(x => x!.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+                try
+                {
+                    File.WriteAllText(_filePath, string.Empty);
+                    Log($"Item {name} removed successfully");
+                }
+                catch (FileNotFoundException)
+                {
+                    //TODO log error
+                }
+                if (items.Count > 0)
+                {
+                    foreach (var item in items)
+                    {
+                        AddItem(item!);
+                    }
+                } 
+            }
+        }
+        private void Log(string message) => _loggers.ForEach(logger => logger.Log(message));
     }
 }

@@ -8,14 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="save.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="save.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="food.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

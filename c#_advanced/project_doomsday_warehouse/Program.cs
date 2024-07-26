@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using project_doomsday_warehouse.Constructors;
+using System.Xml.Linq;
 
 namespace project_doomsday_warehouse
 {
@@ -6,9 +7,11 @@ namespace project_doomsday_warehouse
     {
         static void Main(string[] args)
         {
-            var warehouse = new Warehouse<FoodItem>();
-            var warehouse2 = new Warehouse<WeaponItem>();
-            var warehouse3 = new Warehouse<MedicalItem>();
+            IMyLogger logger = new FileMyLogger();
+
+            IWarehouse<FoodItem> maistasWarehouse = new Warehouse<FoodItem>("../../../maistas.csv", logger);
+            IWarehouse<WeaponItem> ginklaiWarehouse = new Warehouse<WeaponItem>("../../../ginklai.csv", logger);
+            IWarehouse<MedicalItem> vaistaiWarehouse = new Warehouse<MedicalItem>("../../../vaistai.csv", logger);
 
             var foodItem = new FoodItem("Apple", 0.5, new DateOnly(2022, 12, 31), 100);
             var foodItem2 = new FoodItem("Banana", 0.3, new DateOnly(2022, 12, 31), 200);
@@ -22,25 +25,19 @@ namespace project_doomsday_warehouse
             var medicalItem2 = new MedicalItem("Bandage", 0.2, new DateOnly(2022, 12, 31), "Wound care");
             var medicalItem3 = new MedicalItem("Antibiotics", 0.3, new DateOnly(2022, 12, 31), "Infection treatment");
 
-            warehouse.AddItem(foodItem);
-            warehouse.AddItem(foodItem2);
-            warehouse.AddItem(foodItem3);
+            maistasWarehouse.AddItem(foodItem);
+            maistasWarehouse.AddItem(foodItem2);
+            maistasWarehouse.AddItem(foodItem3);
 
-            warehouse2.AddItem(weaponItem);
-            warehouse2.AddItem(weaponItem2);
-            warehouse2.AddItem(weaponItem3);
+            ginklaiWarehouse.AddItem(weaponItem);
+            ginklaiWarehouse.AddItem(weaponItem2);
+            ginklaiWarehouse.AddItem(weaponItem3);
 
-            warehouse3.AddItem(medicalItem);
-            warehouse3.AddItem(medicalItem2);
-            warehouse3.AddItem(medicalItem3);
+            vaistaiWarehouse.AddItem(medicalItem);
+            vaistaiWarehouse.AddItem(medicalItem2);
+            vaistaiWarehouse.AddItem(medicalItem3);
 
-            var Items = warehouse.GetItems();
-            var Items2 = warehouse2.GetItems();
-            var Items3 = warehouse3.GetItems();
 
-            var item = warehouse.GetItem("Apple");
-            var item2 = warehouse2.GetItem("Sword");
-            var item3 = warehouse3.GetItem("Painkiller");
 
 
         }
