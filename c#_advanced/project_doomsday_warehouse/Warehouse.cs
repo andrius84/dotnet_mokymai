@@ -26,8 +26,7 @@ namespace project_doomsday_warehouse
             }
             catch (Exception ex)
             {
-                //TODO log error
-                Console.WriteLine("Error occurred while adding item: " + ex.Message);
+                Log("Error occurred while adding item: " + ex.Message);
             }
         }
         public List<T> GetItems()
@@ -47,8 +46,7 @@ namespace project_doomsday_warehouse
             }
             catch (Exception ex)
             {
-                //TODO log error
-                Console.WriteLine("Error occurred while getting items: " + ex.Message);
+                Log($"Error occurred while getting items: {ex.Message}");
                 return new List<T>();
             }
         }
@@ -69,8 +67,7 @@ namespace project_doomsday_warehouse
             }
             catch (Exception ex)
             {
-                //TODO log error
-                Console.WriteLine("Error occurred while getting item: " + ex.Message);
+                Log($"Error occurred while getting item: {ex.Message}");
                 return default(T);
             }
         }
@@ -87,7 +84,7 @@ namespace project_doomsday_warehouse
                 }
                 catch (FileNotFoundException)
                 {
-                    //TODO log error
+                    Log("File not found");
                 }
                 if (items.Count > 0)
                 {

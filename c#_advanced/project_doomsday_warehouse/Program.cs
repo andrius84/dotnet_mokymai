@@ -37,6 +37,10 @@ namespace project_doomsday_warehouse
             vaistaiWarehouse.AddItem(medicalItem2);
             vaistaiWarehouse.AddItem(medicalItem3);
 
+            maistasWarehouse.RemoveItem("banana");
+            ginklaiWarehouse.RemoveItem("Axe");
+            vaistaiWarehouse.RemoveItem("Bandage");
+
 
 
 
