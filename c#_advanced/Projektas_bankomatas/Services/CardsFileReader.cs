@@ -28,6 +28,7 @@ namespace Projektas_bankomatas.Services
                 Console.WriteLine("Įveskite skaičių, kurią kortelę naudosite");
                 int choose = int.Parse(Console.ReadLine());
                 string card = alllines[choose-1];
+              
                 return card;
             }
             catch (Exception ex)

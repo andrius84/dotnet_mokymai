@@ -7,17 +7,15 @@ namespace Projektas_bankomatas
     {
         static void Main(string[] args)
         {
-            var card1 = new CardsFileReader("../../../validcards.csv");
-            var mycard = card1.ChooseCard();
-
+            var cashmachineinfo = new CashMachine("../../../machineinfo.csv");
+            var cards = new CardsFileReader("../../../validcards.csv");
+            var cashmachine = new CashMachineOperations("../../../usersinfo.csv");
+            var mycard = cards.ChooseCard();
             Console.WriteLine(mycard);
+            var userdata = cashmachine.ShowLoginMenu(mycard);
+            var user1 = new Users(new System.Guid(userdata[0]), userdata[1], double.Parse(userdata[2]), userdata[3]);
+            cashmachine.ShowMenu(user1);
             Console.ReadKey();
-
-            var cashmachine = new CashMachineOperations("../../../users.csv");
-            cashmachine.ShowMenu(1);
-
-            Console.ReadKey();
-
         }
     }
 }
