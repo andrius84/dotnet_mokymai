@@ -9,5 +9,7 @@ namespace Projektas_bankomatas.Interfaces
     public interface ICashMachineTransactions
     {
         void AddTransactionToFile(Guid cardId, string transactionType, decimal amount);
+        List<string> GetTransactions(Guid cardId);
+        public int CheckTransactionDayCount(Guid cardId);
     }
 }

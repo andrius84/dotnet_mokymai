@@ -13,12 +13,12 @@ namespace Projektas_bankomatas.Services
 {
     public class CashMachineOperations : ICashMachineOperations
     {
-        private readonly List<ICashMachineTransactions> _transactions;
+        private readonly ICashMachineTransactions _transaction;
         private readonly string _filePath;
 
         public CashMachineOperations(ICashMachineTransactions transactions, string filePath)
         {
-            _transactions = new List<ICashMachineTransactions> { transactions };
+            _transaction =  transactions;
             _filePath = filePath;
         }
         public Guid CheckCardGuidNumber(string id)
@@ -117,7 +117,6 @@ namespace Projektas_bankomatas.Services
         }
         public void WithdrawMoney(Users user)
         {
-            var transaction = new CashMachineTransactions("../../../transactions.csv");
             Console.WriteLine("Enter the amount you want to withdraw: ");
             var amount = decimal.Parse(Console.ReadLine());
             if (amount > user.Balance)
@@ -135,7 +134,7 @@ namespace Projektas_bankomatas.Services
                 Console.WriteLine("You can't withdraw negative amount");
                 Console.ReadKey();
             }
-            else if (transaction.CheckTransactionDayCount(user.CardId) >= 10)
+            else if (_transaction.CheckTransactionDayCount(user.CardId) >= 10)
             {
                 Console.WriteLine("You have reached the limit of 10 transactions per day");
                 Console.ReadKey();
@@ -143,6 +142,11 @@ namespace Projektas_bankomatas.Services
             else if (amount > 1000 - user.Balance)
             {
                 Console.WriteLine("You can't withdraw more than 1000 euros per day");
+                Console.ReadKey();
+            }
+            else if (amount % 2 != 0)
+            {
+                Console.WriteLine("You can't withdraw odd amount");
                 Console.ReadKey();
             }
             else
@@ -156,7 +160,7 @@ namespace Projektas_bankomatas.Services
                 machineinfo.AmountOfMoney -= amount;
                 WriteMachineInfoToFile(machineinfo);
                 var usertransaction = new Transactions(user.CardId, "Withdraw", amount);
-                AddTransactionToFile(usertransaction);
+                _transaction.AddTransactionToFile(amount: amount, cardId: user.CardId, transactionType: "Withdraw");
                 Console.WriteLine("Transaction completed");
                 Console.ReadKey();
             }
@@ -220,9 +224,8 @@ namespace Projektas_bankomatas.Services
         }
         public void ShowLast5Transactions(Users user)
         {
-            var transactions = new CashMachineTransactions("../../../transactions.csv");
             var i = 0;
-            var userTransactions = transactions.GetTransactions(user.CardId);
+            var userTransactions = _transaction.GetTransactions(user.CardId);
             userTransactions.Reverse();
             foreach (var transaction in userTransactions)
             {
@@ -235,7 +238,7 @@ namespace Projektas_bankomatas.Services
             }
             Console.ReadKey();
         }
-        private void AddTransactionToFile(Transactions transaction) => _transactions.ForEach(t => t.AddTransactionToFile(transaction.CardId, transaction.TransactionType, transaction.Amount));
+        private void AddTransactionToFile(Guid cardId, string transactionType, decimal amount) => _transaction.AddTransactionToFile(cardId, transactionType, amount);
     }
 }   
 
