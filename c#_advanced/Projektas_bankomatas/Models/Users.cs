@@ -10,10 +10,9 @@ namespace Projektas_bankomatas.Models
     {
         public Guid CardId { get; set; }
         public string Name { get; set; }
-        public double Balance { get; set; }
+        public decimal Balance { get; set; }
         public string Password { get; set; }
-
-        public Users(Guid cardId, string name, double balance, string password)
+        public Users(Guid cardId, string name, decimal balance, string password)
         {
             CardId = cardId;
             Name = name;

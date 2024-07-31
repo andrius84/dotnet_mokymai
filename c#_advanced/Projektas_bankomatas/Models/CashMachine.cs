@@ -13,7 +13,6 @@ namespace Projektas_bankomatas.Models
             FilePath = filePath;
         }
         public string FilePath { get; set; }
-        public string Transactions { get; set; }
         public decimal AmountOfMoney { get; set; }
         public int AmountIn100 { get; set; }
         public int AmountIn50 { get; set; }
