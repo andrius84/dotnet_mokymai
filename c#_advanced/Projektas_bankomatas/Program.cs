@@ -8,18 +8,21 @@ namespace Projektas_bankomatas
     {
         static void Main(string[] args)
         {
-            ICashMachineTransactions transactions = new CashMachineTransactions("../../../transactions.csv");
-            var cashmachine = new CashMachineOperations(transactions, "../../../usersinfo.csv");
+
+            CashMachine machine = new CashMachine("../../../machineinfo.csv");
+            ICashMachineTransactions cashMachineTransactions = new CashMachineTransactions("../../../transactions.csv");
+            ICashMachineOperations cashMachineOperations = new CashMachineOperations(cashMachineTransactions, machine, "../../../usersinfo.csv");
+            ICashMachineUserInterface cashMachineUserInterface = new CashMachineUserInterface(cashMachineTransactions, cashMachineOperations);
 
             var cards = new CardsFileReader("../../../validcards.csv");
             var mycard = cards.ChooseCard();
             Console.WriteLine(mycard);
 
-            var cashmachineinfo = new CashMachine("../../../machineinfo.csv");
-            
-            var userdata = cashmachine.ShowLoginMenu(mycard);
-            var user1 = new Users(new System.Guid(userdata[0]), userdata[1], decimal.Parse(userdata[2]), userdata[3]);
-            cashmachine.ShowMenu(user1);
+            var userdata = cashMachineUserInterface.ShowLoginMenu(mycard);
+            var user = new Users(new System.Guid(userdata[0]), userdata[1], decimal.Parse(userdata[2]), userdata[3]);
+
+            cashMachineUserInterface.ShowMenu(user);
+
             Console.ReadKey();
         }
     }

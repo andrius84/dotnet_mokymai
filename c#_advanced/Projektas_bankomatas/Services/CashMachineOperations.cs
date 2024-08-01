@@ -14,12 +14,14 @@ namespace Projektas_bankomatas.Services
     public class CashMachineOperations : ICashMachineOperations
     {
         private readonly ICashMachineTransactions _transaction;
+        private readonly CashMachine _machine;
         private readonly string _filePath;
 
-        public CashMachineOperations(ICashMachineTransactions transactions, string filePath)
+        public CashMachineOperations(ICashMachineTransactions transactions, CashMachine machine, string filePath)
         {
-            _transaction =  transactions;
+            _transaction = transactions;
             _filePath = filePath;
+            _machine = machine;
         }
         public Guid CheckCardGuidNumber(string id)
         {
@@ -33,63 +35,6 @@ namespace Projektas_bankomatas.Services
                 }
             }
             return Guid.Empty;
-        }
-
-        public List<string> ShowLoginMenu(string cardNumber)
-        {
-            var cardGuid = CheckCardGuidNumber(cardNumber);
-            Console.WriteLine($"Enter your pin: ");
-            var pin = Console.ReadLine();
-            var balance = GetUserInfo(cardGuid);
-            for ( int i = 0; i < 2; i++)
-            {
-                if (cardGuid == new Guid(balance[0]) && pin == balance[3])
-                {
-                    return balance;
-                }
-                else
-                {
-                    Console.WriteLine("Wrong card number or pin");
-                    Console.WriteLine("Enter your pin: ");
-                    pin = Console.ReadLine();
-                }
-            }
-            Console.WriteLine("Card blocked");
-            Environment.Exit(0);
-            return null;
-        }
-
-        public void ShowMenu(Users user)
-        {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("Welcome " + user.Name);
-                Console.WriteLine("Choose an option:");
-                Console.WriteLine("1. Check balance");
-                Console.WriteLine("2. Withdraw money");
-                Console.WriteLine("3. Show last 5 transactions");
-                Console.WriteLine("4. Exit");
-                var choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "1":
-                        CheckBalance(user.CardId);
-                        break;
-                    case "2":
-                        WithdrawMoney(user);
-                        break;
-                    case "3":
-                        ShowLast5Transactions(user);
-                        break;
-                    case "4":
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        Console.WriteLine("Wrong choice");
-                        break;
-                }
-            }
         }
         public List<string> GetUserInfo(Guid cardid)
         {
@@ -108,7 +53,6 @@ namespace Projektas_bankomatas.Services
             }
             return balance;
         }
-
         public void CheckBalance(Guid cardid)
         {
             var balance = GetUserInfo(cardid);
@@ -155,17 +99,14 @@ namespace Projektas_bankomatas.Services
                 Console.WriteLine("You have withdrawn " + amount + " euros");
                 Console.WriteLine("Your balance is: " + user.Balance);
                 WriteUserBalanceToFile(user);
-                var machineinfo = new CashMachine("../../../machineinfo.csv");
-                ReadMachineInfo(machineinfo);
-                machineinfo.AmountOfMoney -= amount;
-                WriteMachineInfoToFile(machineinfo);
-                var usertransaction = new Transactions(user.CardId, "Withdraw", amount);
+                ReadMachineInfo(_machine);
+                _machine.AmountOfMoney -= amount;
+                WriteMachineInfoToFile(_machine);
                 _transaction.AddTransactionToFile(amount: amount, cardId: user.CardId, transactionType: "Withdraw");
                 Console.WriteLine("Transaction completed");
                 Console.ReadKey();
             }
         }
-
         public void WriteUserBalanceToFile(Users user)
         {
             var lines = File.ReadAllLines(_filePath);
@@ -185,7 +126,6 @@ namespace Projektas_bankomatas.Services
             }
             File.WriteAllLines(_filePath, newLines);
         }
-
         public void WriteMachineInfoToFile(CashMachine machine)
         {
             var lines = File.ReadAllLines(machine.FilePath);
@@ -205,7 +145,6 @@ namespace Projektas_bankomatas.Services
             }
             File.WriteAllLines(machine.FilePath, newInfo);
         }
-
         public void ReadMachineInfo(CashMachine machine)
         {
             var lines = File.ReadAllLines(machine.FilePath);
@@ -221,22 +160,6 @@ namespace Projektas_bankomatas.Services
                     throw new Exception("Machine info not found");
                 }
             }
-        }
-        public void ShowLast5Transactions(Users user)
-        {
-            var i = 0;
-            var userTransactions = _transaction.GetTransactions(user.CardId);
-            userTransactions.Reverse();
-            foreach (var transaction in userTransactions)
-            {
-                Console.WriteLine(transaction);
-                i++;
-                if (i == 5)
-                {
-                    break;
-                }
-            }
-            Console.ReadKey();
         }
         private void AddTransactionToFile(Guid cardId, string transactionType, decimal amount) => _transaction.AddTransactionToFile(cardId, transactionType, amount);
     }
