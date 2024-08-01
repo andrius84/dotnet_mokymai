@@ -1,3 +1,0 @@
-Order has been placed. Price=0.1, Ammount=100 
-Naujas logas jeeeee. Price=0.1, Ammount=100 
-Naujas logas jeeeee. Price=0.1, Ammount=100 

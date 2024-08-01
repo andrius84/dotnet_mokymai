@@ -237,7 +237,7 @@ namespace project_1_mind_game
                               "Žaisdami galite pasinaudoti pagalba parašę d ir paspaudę enter, kuri panaikins du neteisingus atsakymus.");
             Console.WriteLine();
             Console.WriteLine("Paspauskite 'q' jei norite grįžti atgal");
-            while (Console.ReadKey(true).Key != ConsoleKey.Q);
+            while (Console.ReadKey(true).Key != ConsoleKey.Q) ;
         }
         public static void PrintGameParticipants(string loggeduser)
         {
@@ -399,7 +399,7 @@ namespace project_1_mind_game
                 if (questionnr >= 10)
                 {
                     break;
-                }   
+                }
             }
             if (points > users[loggeduser])
             {
@@ -560,3 +560,4 @@ namespace project_1_mind_game
         }
     }
 }
+
