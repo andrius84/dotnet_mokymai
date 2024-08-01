@@ -15,11 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_5_access_modifiers
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_6_streams_files", "Paskaita_6_streams_files\Paskaita_6_streams_files.csproj", "{4AD9A077-1E4E-47E3-AC9D-7CAE6E80B0FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektas_mini_kontaktai", "mini_project\Projektas_mini_kontaktai.csproj", "{5260C1B7-7E09-4A24-9B3E-87FDD7859704}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektas_mini_kontaktai", "Projektas_mini_kontaktai\Projektas_mini_kontaktai.csproj", "{5260C1B7-7E09-4A24-9B3E-87FDD7859704}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_7_generic", "Paskaita_7_generic\Paskaita_7_generic.csproj", "{719DB3B5-8913-48FA-AA68-AE30F688FFA2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektas_doomsday_warehouse", "project_doomsday_warehouse\Projektas_doomsday_warehouse.csproj", "{723DA7D2-C7A3-4610-BA00-FBC9D3FF798B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektas_doomsday_warehouse", "Projektas_doomsday_warehouse\Projektas_doomsday_warehouse.csproj", "{723DA7D2-C7A3-4610-BA00-FBC9D3FF798B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_8_exceptions", "Paskaita_8_exceptions\Paskaita_8_exceptions.csproj", "{7E17693C-381D-4DD9-8D34-429BF941A431}"
 EndProject
@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_11_linq", "Paskait
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_12_interfaces_icomparer", "Paskaita_12_interfaces_icomparer\Paskaita_12_interfaces_icomparer.csproj", "{B3713DB3-6709-4450-8BAD-C802B756D54A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_logger", "Task_logger\Task_logger.csproj", "{7C97B69D-D398-4909-BF17-668D22252708}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektas_task_logger", "Projektas_task_logger\Projektas_task_logger.csproj", "{7C97B69D-D398-4909-BF17-668D22252708}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektas_bankomatas", "Projektas_bankomatas\Projektas_bankomatas.csproj", "{F040F582-EA6F-494B-B2CD-E2F03D86D036}"
 EndProject
