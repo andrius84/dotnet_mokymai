@@ -35,8 +35,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektas_task_logger", "Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projektas_bankomatas", "Projektas_bankomatas\Projektas_bankomatas.csproj", "{F040F582-EA6F-494B-B2CD-E2F03D86D036}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projektas_restorano_sistema", "Projektas_restorano_sistema\Projektas_restorano_sistema.csproj", "{A1E812AC-0BCB-494A-A231-B3C3E4FAFE84}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,10 +105,6 @@ Global
 		{F040F582-EA6F-494B-B2CD-E2F03D86D036}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F040F582-EA6F-494B-B2CD-E2F03D86D036}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F040F582-EA6F-494B-B2CD-E2F03D86D036}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1E812AC-0BCB-494A-A231-B3C3E4FAFE84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1E812AC-0BCB-494A-A231-B3C3E4FAFE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1E812AC-0BCB-494A-A231-B3C3E4FAFE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1E812AC-0BCB-494A-A231-B3C3E4FAFE84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
