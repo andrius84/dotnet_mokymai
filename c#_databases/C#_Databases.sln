@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_3_EntityFramework", "Paskaita_3_EntityFramework\Paskaita_3_EntityFramework.csproj", "{80C4B227-0F10-404A-AA36-5115C76E11A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_6", "Paskaita_6\Paskaita_6.csproj", "{080D5C8F-555F-42CF-842E-835FEC7E9EFE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_5_data_seed", "Paskaita_5_data_seed\Paskaita_5_data_seed.csproj", "{DD2585FE-8496-49B4-8A43-E608C6ECAC02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita_8_ManyToMany", "Paskaita_8_ManyToMany\Paskaita_8_ManyToMany.csproj", "{CEDFF7C2-F90A-4993-BB8C-4DEF83CD961C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80C4B227-0F10-404A-AA36-5115C76E11A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80C4B227-0F10-404A-AA36-5115C76E11A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80C4B227-0F10-404A-AA36-5115C76E11A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80C4B227-0F10-404A-AA36-5115C76E11A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080D5C8F-555F-42CF-842E-835FEC7E9EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080D5C8F-555F-42CF-842E-835FEC7E9EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080D5C8F-555F-42CF-842E-835FEC7E9EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080D5C8F-555F-42CF-842E-835FEC7E9EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD2585FE-8496-49B4-8A43-E608C6ECAC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2585FE-8496-49B4-8A43-E608C6ECAC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2585FE-8496-49B4-8A43-E608C6ECAC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2585FE-8496-49B4-8A43-E608C6ECAC02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEDFF7C2-F90A-4993-BB8C-4DEF83CD961C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEDFF7C2-F90A-4993-BB8C-4DEF83CD961C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEDFF7C2-F90A-4993-BB8C-4DEF83CD961C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEDFF7C2-F90A-4993-BB8C-4DEF83CD961C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16A4FDB4-A879-46E4-8469-FC92E7A188A6}
+	EndGlobalSection
+EndGlobal
