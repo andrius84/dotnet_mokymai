@@ -12,5 +12,6 @@ namespace Paskaita_8_ManyToMany.Entities
         public required string Name { get; set; }
         public int Year { get; set; }   
         public ICollection<Category> Categories { get; set; } = new List<Category>();
+        public ICollection<Author> Authors { get; set; } = new List<Author>();
     }
 }

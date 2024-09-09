@@ -44,17 +44,49 @@ namespace Paskaita_8_ManyToMany
         }
         public static List<object> GetBooksAndCategories()
         {
-            var bookCategories = new List<object>();
             var csv = File.ReadAllLines("InitialData/BooksCategories.csv");
+            var booksCategories = new List<object>();
             foreach (var line in csv) 
             {
                 var values = line.Split(',');
                 int bookId = int.Parse(values[0]);
                 int categoryId = int.Parse(values[1]);
 
-                bookCategories.Add(new { BooksBookId = bookId, CategoriesCategoryId = categoryId });
+                booksCategories.Add(new { BooksBookId = bookId, CategoriesCategoryId = categoryId });
             }
-            return bookCategories;
+            return booksCategories;
+        }
+        public static List<Author> GetAuthors()
+        {
+            var csv = File.ReadAllLines("InitialData/Authors.csv");
+            var authors = new List<Author>();
+            foreach (var line in csv)
+            {
+                var values = line.Split(',');
+                var author = new Author
+                {
+                    AuthorId = int.Parse(values[0]),
+                    FirstName = values[1],
+                    LastName = values[2]
+                };
+                authors.Add(author);
+            }
+            return authors;
+        }
+        public static List<object> GetBooksAndAuthors()
+        {
+            var csv = File.ReadAllLines("InitialData/BooksAuthors.csv");
+            var booksAuthors = new List<object>();
+            foreach (var line in csv)
+            {
+                var values = line.Split(',');
+                int bookId = int.Parse(values[0]);
+                int authorId = int.Parse(values[1]);
+
+                booksAuthors.Add(new { BooksBookId = bookId, AuthorsAuthorId = authorId });
+
+            }
+            return booksAuthors;
         }
     }
 }

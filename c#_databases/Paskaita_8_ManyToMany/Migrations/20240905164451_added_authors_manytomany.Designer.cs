@@ -11,8 +11,8 @@ using Paskaita_8_ManyToMany;
 namespace Paskaita_8_ManyToMany.Migrations
 {
     [DbContext(typeof(BookContext))]
-    [Migration("20240904185018_tables_and_columns_names_changes")]
-    partial class tables_and_columns_names_changes
+    [Migration("20240905164451_added_authors_manytomany")]
+    partial class added_authors_manytomany
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,68 @@ namespace Paskaita_8_ManyToMany.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("AuthorBook", b =>
+                {
+                    b.Property<int>("AuthorsAuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BooksBookId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AuthorsAuthorId", "BooksBookId");
+
+                    b.HasIndex("BooksBookId");
+
+                    b.ToTable("BookAuthor", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            AuthorsAuthorId = 1,
+                            BooksBookId = 1
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 2,
+                            BooksBookId = 1
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 1,
+                            BooksBookId = 2
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 1,
+                            BooksBookId = 3
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 2,
+                            BooksBookId = 4
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 1,
+                            BooksBookId = 5
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 2,
+                            BooksBookId = 5
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 2,
+                            BooksBookId = 6
+                        },
+                        new
+                        {
+                            AuthorsAuthorId = 2,
+                            BooksBookId = 7
+                        });
+                });
 
             modelBuilder.Entity("BookCategory", b =>
                 {
@@ -86,6 +148,42 @@ namespace Paskaita_8_ManyToMany.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Paskaita_8_ManyToMany.Entities.Author", b =>
+                {
+                    b.Property<int>("AuthorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthorId"));
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AuthorId");
+
+                    b.ToTable("Authors", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            AuthorId = 1,
+                            FirstName = "John",
+                            LastName = "Doe"
+                        },
+                        new
+                        {
+                            AuthorId = 2,
+                            FirstName = "Jane",
+                            LastName = "Smith"
+                        });
+                });
+
             modelBuilder.Entity("Paskaita_8_ManyToMany.Entities.Book", b =>
                 {
                     b.Property<int>("BookId")
@@ -98,15 +196,15 @@ namespace Paskaita_8_ManyToMany.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Name2");
+                        .HasColumnName("BookName");
 
                     b.Property<int>("Year")
                         .HasColumnType("int")
-                        .HasColumnName("Year2");
+                        .HasColumnName("BookYear");
 
                     b.HasKey("BookId");
 
-                    b.ToTable("LibraryBooks", (string)null);
+                    b.ToTable("Books", (string)null);
 
                     b.HasData(
                         new
@@ -169,7 +267,7 @@ namespace Paskaita_8_ManyToMany.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("BookCategories", (string)null);
+                    b.ToTable("Categories", (string)null);
 
                     b.HasData(
                         new
@@ -187,6 +285,21 @@ namespace Paskaita_8_ManyToMany.Migrations
                             CategoryId = 3,
                             Name = "Fantasy"
                         });
+                });
+
+            modelBuilder.Entity("AuthorBook", b =>
+                {
+                    b.HasOne("Paskaita_8_ManyToMany.Entities.Author", null)
+                        .WithMany()
+                        .HasForeignKey("AuthorsAuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Paskaita_8_ManyToMany.Entities.Book", null)
+                        .WithMany()
+                        .HasForeignKey("BooksBookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("BookCategory", b =>
