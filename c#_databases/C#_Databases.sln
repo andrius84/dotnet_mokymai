@@ -15,9 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita8_tests", "Paskaita
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_8_Uzduotis", "Paskaita_8_Uzduotis\Paskaita_8_Uzduotis.csproj", "{40E7A6B0-23F3-4987-9210-B5379223CF27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita_9_lazy_eager_loading", "Paskaita_9_lazy_eager_loading\Paskaita_9_lazy_eager_loading.csproj", "{8426B110-178A-4D11-83D1-A2D89896A834}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_9_lazy_eager_loading", "Paskaita_9_lazy_eager_loading\Paskaita_9_lazy_eager_loading.csproj", "{8426B110-178A-4D11-83D1-A2D89896A834}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita_9_Uzduotis", "Paskaita_9_Uzduotis\Paskaita_9_Uzduotis.csproj", "{35984381-D759-4058-B478-E6010284B446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_9_Uzduotis", "Paskaita_9_Uzduotis\Paskaita_9_Uzduotis.csproj", "{35984381-D759-4058-B478-E6010284B446}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uzduotis_10", "Uzduotis_10\Uzduotis_10.csproj", "{D8AC5498-FD09-4180-AE6B-336A1A8C5907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uzduotis_10_Tests", "Uzduotis_10_Tests\Uzduotis_10_Tests.csproj", "{C5357D60-D38C-4CB5-9892-3E337E13AC3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{35984381-D759-4058-B478-E6010284B446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35984381-D759-4058-B478-E6010284B446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35984381-D759-4058-B478-E6010284B446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8AC5498-FD09-4180-AE6B-336A1A8C5907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8AC5498-FD09-4180-AE6B-336A1A8C5907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8AC5498-FD09-4180-AE6B-336A1A8C5907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8AC5498-FD09-4180-AE6B-336A1A8C5907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5357D60-D38C-4CB5-9892-3E337E13AC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5357D60-D38C-4CB5-9892-3E337E13AC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5357D60-D38C-4CB5-9892-3E337E13AC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5357D60-D38C-4CB5-9892-3E337E13AC3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
