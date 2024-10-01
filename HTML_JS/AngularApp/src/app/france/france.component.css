@@ -1,0 +1,6 @@
+.flag {
+    width: 150px;
+    height: 100px;
+    border: 1px solid black;
+    background: linear-gradient(to right, #0055a4 33%, #fff 33%, #ef4135 33%);
+  }

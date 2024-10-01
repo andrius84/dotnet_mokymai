@@ -1,0 +1,29 @@
+.main {
+    justify-content: center;
+    height: 50vh;
+    font-size: 20px;
+  }
+  
+  h1 {
+    color: blue;
+    background-color: yellow;
+    border: 1px solid black;
+    display: block;
+  }
+  
+  .example1 {
+    color: red;
+  }
+  
+  .example2 {
+    color: green;
+  }
+  
+  .example3 {
+    color: blue;
+  }
+  
+  .example4 {
+    color: rgb(65, 36, 5);
+  }
+  

@@ -1,0 +1,77 @@
+.paragrafas {
+    width: 100px;
+    height: 100px;
+    color: rgb(29, 9, 110);
+    font-size: 20px;
+    border: 10px solid rgb(89, 123, 61);
+    border-style: dotted;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+#text {
+    width: 100px;
+    height: 100px;
+    color: rgb(29, 9, 110);
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+.figura {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(41, 41, 86);
+    border: 10px solid rgb(89, 123, 61);
+    border-style:ridge;
+    padding: 15px;
+}
+.paveikslelis {
+    width: 100px;
+    height: 100px;
+    size: 100px;
+    background-color: rgb(182, 192, 182);
+    border: 10px solid rgb(89, 123, 61);
+    margin-top: 20px;
+    border-style: dashed;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.konteineris {
+    position: relative;
+    color: white;
+  }
+  .image1 img {
+    width: 600px;
+    height: 100px;
+    object-fit: cover; 
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .image2 img {
+    width: 600px;
+    height: 100px;
+    object-fit: cover; 
+    border-radius: 20px;
+  }
+  .text1 {
+    position: absolute;
+    top: 56%;  
+    left: 12%; 
+    transform: translate(-50%, -50%); 
+    color: rgb(12, 49, 18); 
+    font-size: 20px; 
+    border-radius: 5px;
+  }
+  .text2 {
+    position: absolute;
+    top: 5%;  
+    left: 5%; 
+    color: rgb(12, 49, 18); 
+    font-size: 20px;  
+  }
+  .text3 {
+    position: absolute;
+    top: 40%;  
+    left:5%;
+    color: rgb(12, 49, 18); 
+    font-size: 15px;  
+  }

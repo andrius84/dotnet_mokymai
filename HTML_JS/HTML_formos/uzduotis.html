@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Formos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="uzduotis.css">
+    <title>Uzduotis</title>
+</head>
+<body>
+    <div class="aprasymas"> 
+        <h1>HTML form task1</h1>
+
+        <h2>Building a form</h2>
+
+        <div class="aprasymas2">
+            <h2>New widgets:</h2>
+            <ul>
+                <li>&lt;abbr&gt;</li>
+                <li>&lt;select&gt;</li>
+                <ul>
+                    <li>&lt;option&gt;</li>
+                </ul>
+                <li>&lt;input type="checkbox"&gt;</li>
+            </ul>
+        </div>
+    </div>  
+
+    <div class="forma">
+        <h1>Payment form</h1>
+        <h4>Required field are followed by *.</h4>
+
+        <h1>Contact information</h1>
+        <form class="forma1">
+            <label for="name">Name:<span class="tooltip">*<span class="tooltiptext">required</span></span></label>
+            <input type="text" id="name" name="vardas"><br><br>
+
+            <label for="email">E-mail:*</label>
+            <input type="text" id="email" name="epastas"><br><br>
+
+            <label for="pass">Password:*</label>
+            <input type="text" id="pass" name="slaptazodis"><br>
+        </form>
+        <h1>Payment information</h1>
+        <form class="forma1">
+            <label for="name">Card type:*</label>
+            <select id="card_type" name="card_type">
+                <option value="visa">Visa</option>
+                <option value="mastercard">Mastercard</option>
+                <option value="american_express">American Express</option>
+            </select><br><br>
+
+            <label for="cardnr">E-mail:*</label>
+            <input type="text" id="cardnr" name="korteles numeris"><br><br>
+
+            <label for="cardnr">Expiration date:*</label>
+            <input type="text" id="cardnr" name="korteles numeris" placeholder="dd/mm/yyy, --:--"><br><br>
+        </form>
+        <hr>
+
+        <label>Agree with terms and conditions</label>
+        <input type="checkbox" id="agree" name="interest" value="coding"><br><br>
+
+        <button class="mygtukas" type="submit">Validate the payment</button>
+
+        </div>
+
+            
+
+
+
+
+    </div>
+
+</body>
+</html>
