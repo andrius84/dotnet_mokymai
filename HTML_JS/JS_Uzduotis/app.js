@@ -25,158 +25,120 @@ monetos sveria:
 200 ct (2 €) = 8.50 g
 */
 
-let monetos = { ct_1: 3, ct_2: 1, ct_5: 10, ct_10: 5, ct_20: 0, ct_50: 2, ct_100: 7, ct_200: 4 };
+let monetos = {
+    ct_1: 0,
+    ct_2: 0,
+    ct_5: 0,
+    ct_10: 0,
+    ct_20: 0,
+    ct_50: 0,
+    ct_100: 0,
+    ct_200: 0
+};
+
+let monetuSvoris = {
+    ct_1: 0,
+    ct_2: 0,
+    ct_5: 0,
+    ct_10: 0,
+    ct_20: 0,
+    ct_50: 0,
+    ct_100: 0,
+    ct_200: 0
+};
+
+let svoriai = {
+    ct_1: 2.3,
+    ct_2: 3.06,
+    ct_5: 3.92,
+    ct_10: 4.10,
+    ct_20: 5.74,
+    ct_50: 7.80,
+    ct_100: 7.50,
+    ct_200: 8.50
+};
+
 let bendrassvoris = 0;
 
-for (let moneta in monetos) {
-    switch (moneta) {
-        case 'ct_1':
-            bendrassvoris += monetos[moneta] * 2.3;
-            break;
-        case 'ct_2':
-            bendrassvoris += monetos[moneta] * 3.06;
-            break;
-        case 'ct_5':
-            bendrassvoris += monetos[moneta] * 3.92;
-            break;
-        case 'ct_10':
-            bendrassvoris += monetos[moneta] * 4.10;
-            break;
-        case 'ct_20':
-            bendrassvoris += monetos[moneta] * 5.74;
-            break;
-        case 'ct_50':
-            bendrassvoris += monetos[moneta] * 7.80;
-            break;
-        case 'ct_100':
-            bendrassvoris += monetos[moneta] * 7.50;
-            break;
-        case 'ct_200':
-            bendrassvoris += monetos[moneta] * 8.50;
-            break;
+    for (let moneta in monetos) {
+        switch (moneta) {
+            case 'ct_1':
+                bendrassvoris += monetos[moneta] * 2.3;
+                break;
+            case 'ct_2':
+                bendrassvoris += monetos[moneta] * 3.06;
+                break;
+            case 'ct_5':
+                bendrassvoris += monetos[moneta] * 3.92;
+                break;
+            case 'ct_10':
+                bendrassvoris += monetos[moneta] * 4.10;
+                break;
+            case 'ct_20':
+                bendrassvoris += monetos[moneta] * 5.74;
+                break;
+            case 'ct_50':
+                bendrassvoris += monetos[moneta] * 7.80;
+                break;
+            case 'ct_100':
+                bendrassvoris += monetos[moneta] * 7.50;
+                break;
+            case 'ct_200':
+                bendrassvoris += monetos[moneta] * 8.50;
+                break;
+        }
+    }
+
+
+function updateDisplay(coinType) {
+    let quantityElement = document.querySelector(`#kiekis_ct_${coinType}`);
+    let weightElement = document.querySelector(`#svoris_ct_${coinType}`);
+    let bendrasSvorisElement = document.querySelector('#bendras_svoris');
+    quantityElement.textContent = monetos[`ct_${coinType}`];
+    weightElement.textContent = monetuSvoris[`ct_${coinType}`];
+    bendrasSvorisElement.textContent = bendrassvoris;
+}
+
+function incrementCoin(coinType) {
+    monetos[`ct_${coinType}`]++;
+    bendrassvoris += svoriai[`ct_${coinType}`];
+    monetuSvoris[`ct_${coinType}`] = monetos[`ct_${coinType}`] * svoriai[`ct_${coinType}`];
+    updateDisplay(coinType);
+}
+
+function decrementCoin(coinType) {
+    if (monetos[`ct_${coinType}`] > 0) {
+        monetos[`ct_${coinType}`]--;
+        bendrassvoris -= svoriai[`ct_${coinType}`];
+        monetuSvoris[`ct_${coinType}`] = monetos[`ct_${coinType}`] * svoriai[`ct_${coinType}`];
+        updateDisplay(coinType);
+    } else {
+        console.log('Monetų nėra');
     }
 }
 
-console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
 
-btn1up.addEventListener('click', () => {
-    monetos.ct_1++;
-    bendrassvoris += 2.3;
-    console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-});
-btn1down.addEventListener('click', () => {
-    if (monetos.ct_1 > 0) {
-        monetos.ct_1--;
-        bendrassvoris -= 2.3;
-        console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-    }
-    else {
-        console.log('Monetų nėra');
-    }
-});
-btn2up.addEventListener('click', () => {
-    monetos.ct_2++;
-    bendrassvoris += 3.06;
-    console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-});
-btn2down.addEventListener('click', () => {
-    if (monetos.ct_2 > 0) {
-        monetos.ct_2--;
-        bendrassvoris -= 3.06;
-        console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-    }
-    else {
-        console.log('Monetų nėra');
-    }
-});
-btn5up.addEventListener('click', () => {
-    monetos.ct_5++;
-    bendrassvoris += 3.92;
-    console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-});
-btn5down.addEventListener('click', () => {
-    if (monetos.ct_5 > 0) {
-        monetos.ct_5--;
-        bendrassvoris -= 3.92;
-        console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-    }
-    else {
-        console.log('Monetų nėra');
-    }
-});
-btn10up.addEventListener('click', () => {
-    monetos.ct_10++;
-    bendrassvoris += 4.10;
-    console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-});
-btn10down.addEventListener('click', () => {
-    if (monetos.ct_10 > 0) {
-        monetos.ct_10--;
-        bendrassvoris -= 4.10;
-        console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-    }
-    else {
-        console.log('Monetų nėra');
-    }
-});
-btn20up.addEventListener('click', () => {
-    monetos.ct_20++;
-    bendrassvoris += 5.74;
-    console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-});
-btn20down.addEventListener('click', () => {
-    if (monetos.ct_20 > 0) {
-        monetos.ct_20--;
-        bendrassvoris -= 5.74;
-        console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-    }
-    else {
-        console.log('Monetų nėra');
-    }
-});
-btn50up.addEventListener('click', () => {
-    monetos.ct_50++;
-    bendrassvoris += 7.80;
-    console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-});
-btn50down.addEventListener('click', () => {
-    if (monetos.ct_50 > 0) {
-        monetos.ct_50--;
-        bendrassvoris -= 7.80;
-        console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-    }
-    else {
-        console.log('Monetų nėra');
-    }
-});
-btn100up.addEventListener('click', () => {
-    monetos.ct_100++;
-    bendrassvoris += 7.50;
-    console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-});
-btn100down.addEventListener('click', () => {
-    if (monetos.ct_100 > 0) {
-        monetos.ct_100--;
-        bendrassvoris -= 7.50;
-        console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-    }
-    else {
-        console.log('Monetų nėra');
-    }
-});
-btn200up.addEventListener('click', () => {
-    monetos.ct_200++;
-    bendrassvoris += 8.50;
-    console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-});
-btn200down.addEventListener('click', () => {
-    if (monetos.ct_200 > 0) {
-        monetos.ct_200--;
-        bendrassvoris -= 8.50;
-        console.log(`Bendras monetų svoris yra ${bendrassvoris} g.`);
-    }
-    else {
-        console.log('Monetų nėra');
-    }
-});
 
+btn1up.addEventListener('click', () => incrementCoin(1));
+btn1down.addEventListener('click', () => decrementCoin(1));
+
+btn2up.addEventListener('click', () => incrementCoin(2));
+btn2down.addEventListener('click', () => decrementCoin(2));
+
+btn5up.addEventListener('click', () => incrementCoin(5));
+btn5down.addEventListener('click', () => decrementCoin(5));
+
+btn10up.addEventListener('click', () => incrementCoin(10));
+btn10down.addEventListener('click', () => decrementCoin(10));
+
+btn20up.addEventListener('click', () => incrementCoin(20));
+btn20down.addEventListener('click', () => decrementCoin(20));
+
+btn50up.addEventListener('click', () => incrementCoin(50));
+btn50down.addEventListener('click', () => decrementCoin(50));
+
+btn100up.addEventListener('click', () => incrementCoin(100));
+btn100down.addEventListener('click', () => decrementCoin(100));
+
+btn200up.addEventListener('click', () => incrementCoin(200));
+btn200down.addEventListener('click', () => decrementCoin(200));
