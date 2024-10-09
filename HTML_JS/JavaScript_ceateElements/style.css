@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  form {
+    width: 400px;
+    margin: 50px auto;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .success-message {
+    color: green;
+    border: 2px solid green;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: red;
+    border: 2px solid red;
+    padding: 10px;
+    margin-top: 10px;
+}

@@ -9,3 +9,6 @@ let element2 = document.querySelector("#btn2");
 
 let element3 = document.querySelector("btn3");
         element3.style.color = "red";
+
+
+const light = sessionStorage.getItem("light");
