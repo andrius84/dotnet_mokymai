@@ -1,0 +1,33 @@
+button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 125px;
+}
+input{
+    width: 510px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.first{
+    position: absolute;
+    left: 20px;
+}
+.second{
+    position: absolute;
+    left: 150px;
+}
+.third{
+    position: absolute;
+    left: 275px;
+}
+.fourth{
+    position: absolute;
+    left: 405px;
+}
+
