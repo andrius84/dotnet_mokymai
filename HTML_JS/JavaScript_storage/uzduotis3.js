@@ -1,12 +1,9 @@
 let textArray = [];
 
 function save() {
-
     const text = document.getElementById('text').value;
     textArray.push(text);
-
     clearInput();
-
     sessionStorage.setItem(generateRandomKey(3), (textArray));
 }
 
